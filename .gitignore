@@ -1,0 +1,13 @@
+# Dependencias y temporales
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+
+# Credenciales y variables privadas
+.env
+.env.local
+.env.*
+*.token
+credentials.json
+token.txt

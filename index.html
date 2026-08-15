@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo de Control Glucémico y Salud Metabólica | Sano & Punto</title>
+    <meta name="description" content="Descubre el método clínico de 3 fases para estabilizar la glucosa y reactivar la sensibilidad a la insulina de forma natural y sostenible.">
+    <meta name="keywords" content="diabetes tipo 2, prediabetes, control de glucosa, nutricion clinica, resistencia a la insulina, sano y punto">
+    <meta name="author" content="Sano & Punto">
+    <meta name="theme-color" content="#0f3b46">
+
+    <!-- Open Graph / Meta Compartir -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Protocolo de Control Glucémico - Sano & Punto">
+    <meta property="og:description" content="Aprende la secuencia nutricional de 3 fases para frenar picos de azúcar y recuperar tu energía.">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='100%25' height='100%25' fill='%230f3b46'/%3E%3Ctext x='50%25' y='50%25' fill='%23ffffff' font-family='sans-serif' font-size='48' font-weight='bold' dominant-baseline='middle' text-anchor='middle'%3ESano %26 Punto - Protocolo Diabetes%3C/text%3E%3C/svg%3E">
+
+    <!-- Google Fonts con Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos de carga ultrarrápida -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barra Superior de Urgencia/Aviso Clínico -->
+    <div class="top-banner">
+        <div class="container top-banner-content">
+            <span class="pulse-dot"></span>
+            <p><strong>NUEVO PROTOCOLO METABÓLICO 2026:</strong> Cupos limitados para el programa guiado</p>
+        </div>
+    </div>
+
+    <!-- Encabezado / Logo -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="brand-logo">
+                <svg class="brand-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="14" fill="#E6F4F6" stroke="#0F3B46" stroke-width="2"/>
+                    <path d="M16 8C13 13 10 16 10 19C10 22.3 12.7 25 16 25C19.3 25 22 22.3 22 19C22 16 19 13 16 8Z" fill="#145365"/>
+                    <path d="M16 13V21M12 17H20" stroke="#F27244" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <div class="brand-text">
+                    <span class="brand-name">SANO & PUNTO</span>
+                    <span class="brand-sub">Nutrición Clínica & Funcional</span>
+                </div>
+            </div>
+            <div class="live-counter">
+                <span class="live-indicator"></span>
+                <span id="viewer-count">24</span> personas viendo ahora
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="main-wrapper">
+        
+        <!-- SECCIÓN 1: HEADLINE Y GANCHO DE CONVERSIÓN -->
+        <section class="hero-section">
+            <div class="container hero-container">
+                <div class="badge-pill">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <span>Para Personas con Prediabetes y Diabetes Tipo 2</span>
+                </div>
+
+                <h1 class="main-headline">
+                    El Método Secuencial de 3 Fases para <span class="highlight-text">Estabilizar tu Glucosa</span> y Desinflamar tu Páncreas
+                </h1>
+
+                <p class="sub-headline">
+                    Sin eliminar todos los carbohidratos, sin pasar hambre y sin depender de suplementos milagrosos. Mira esta breve presentación de 4 minutos:
+                </p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: VSL (VIDEO SALES LETTER) -->
+        <section class="vsl-section">
+            <div class="container vsl-container">
+                <div class="vsl-frame" id="vsl-wrapper">
+                    <!-- Fachada / Reproductor de Carga Instantánea -->
+                    <div class="vsl-facade" id="vsl-facade">
+                        <div class="vsl-overlay-glow"></div>
+                        <div class="vsl-poster">
+                            <div class="vsl-poster-content">
+                                <div class="play-button-pulse">
+                                    <div class="play-btn">
+                                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                    </div>
+                                </div>
+                                <span class="vsl-tag">TOCA PARA VER EL VIDEO COMPLETO (4:12)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contenedor de Video Real (se activa al dar clic o configurar iframe/mp4) -->
+                    <div class="vsl-player-container" id="vsl-player-container" style="display: none;">
+                        <!-- Inserta aquí tu URL de YouTube, Vimeo, Wistia o MP4 -->
+                        <video id="vsl-video" playsinline controls preload="none" poster="">
+                            <source src="" type="video/mp4">
+                            Tu navegador no soporta reproducción de video HTML5.
+                        </video>
+                    </div>
+
+                    <!-- Barra de progreso visual inferior -->
+                    <div class="vsl-progress-bar">
+                        <div class="vsl-progress-fill" id="vsl-progress"></div>
+                    </div>
+                </div>
+
+                <!-- Call to Action Principal Inmediato -->
+                <div class="cta-wrapper">
+                    <!-- Enlace configurable a checkout (Hotmart / Stripe / WhatsApp) -->
+                    <a href="https://pay.hotmart.com/tu-codigo-aqui" class="btn-primary" id="main-cta-btn" target="_blank" rel="noopener noreferrer">
+                        <span class="btn-shine"></span>
+                        <span class="btn-text">SÍ, QUIERO ACCEDER AL PROTOCOLO COMPLETO »</span>
+                        <span class="btn-subtext">Obtén acceso inmediato con garantía total de 30 días</span>
+                    </a>
+
+                    <!-- Sellos de Confianza y Seguridad -->
+                    <div class="trust-badges">
+                        <div class="trust-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            <span>Acceso Inmediato</span>
+                        </div>
+                        <div class="trust-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            <span>Pago 100% Seguro</span>
+                        </div>
+                        <div class="trust-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <span>Garantía de 30 Días</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: STORYTELLING INTERACTIVO (DOLOR ➡️ ERROR ➡️ CIENCIA ➡️ MÉTODO ➡️ SOLUCIÓN) -->
+        <section class="storytelling-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">EL CAMINO HACIA TU LIBERTAD METABÓLICA</span>
+                    <h2 class="section-title">¿Por qué las dietas tradicionales te han fallado?</h2>
+                    <p class="section-desc">Desliza las tarjetas para descubrir la raíz del problema y cómo funciona el método de Sano & Punto:</p>
+                </div>
+
+                <!-- Selector / Pasos visuales superiores -->
+                <div class="story-steps-indicator" id="story-steps">
+                    <button class="step-pill active" data-step="0"><span>1</span> El Dolor</button>
+                    <button class="step-pill" data-step="1"><span>2</span> El Error</button>
+                    <button class="step-pill" data-step="2"><span>3</span> La Ciencia</button>
+                    <button class="step-pill" data-step="3"><span>4</span> El Método</button>
+                    <button class="step-pill" data-step="4"><span>5</span> Tu Libertad</button>
+                </div>
+
+                <!-- Carrusel / Deck de Tarjetas Interactivas -->
+                <div class="slider-wrapper">
+                    <button class="slider-arrow arrow-prev" id="slider-prev" aria-label="Tarjeta anterior">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+
+                    <div class="cards-track" id="cards-track">
+                        
+                        <!-- Tarjeta 1: El Dolor -->
+                        <div class="story-card card-pain" data-index="0">
+                            <div class="card-step-badge">Paso 01 // El Diagnóstico</div>
+                            <div class="card-icon-box">
+                                <span>📉</span>
+                            </div>
+                            <h3>La Frustración del "Pico Invisible"</h3>
+                            <p>Te pinchas el dedo con miedo, experimentas fatiga abrumadora después de comer, niebla mental y esa constante sensación de que la comida es tu enemiga.</p>
+                            <div class="card-highlight">
+                                <strong>La Realidad:</strong> La glucosa inestable no es tu culpa ni falta de fuerza de voluntad. Es un páncreas sobrecargado por inflamación celular.
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 2: El Error Común -->
+                        <div class="story-card card-error" data-index="1">
+                            <div class="card-step-badge">Paso 02 // La Trampa</div>
+                            <div class="card-icon-box">
+                                <span>⚠️</span>
+                            </div>
+                            <h3>Eliminar Carbohidratos No es la Solución</h3>
+                            <p>Las dietas ultra restrictivas o keto extremas disparan los niveles de cortisol (la hormona del estrés), lo cual paradójicamente le ordena al hígado liberar más glucosa.</p>
+                            <div class="card-highlight">
+                                <strong>El Fallo:</strong> Al prohibirte todo, dañas la microbiota intestinal y aumentas el rebote glucémico cuando vuelves a comer normal.
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 3: La Clave Científica -->
+                        <div class="story-card card-science" data-index="2">
+                            <div class="card-step-badge">Paso 03 // El Hallazgo</div>
+                            <div class="card-icon-box">
+                                <span>🧬</span>
+                            </div>
+                            <h3>La Secuencia y Sinergia Molecular</h3>
+                            <p>No se trata de <em>qué</em> comes, sino de <strong>cómo combinas y ordenas los nutrientes</strong> en tu plato para aplanar la curva de absorción de glucosa.</p>
+                            <div class="card-highlight">
+                                <strong>Dato Clínico:</strong> Modificar el orden secuencial de los alimentos reduce hasta un <strong>73%</strong> el pico de glucosa e insulina postprandial.
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 4: El Método Sano & Punto -->
+                        <div class="story-card card-method" data-index="3">
+                            <div class="card-step-badge">Paso 04 // El Protocolo</div>
+                            <div class="card-icon-box">
+                                <span>🌿</span>
+                            </div>
+                            <h3>Las 3 Fases de Restauración</h3>
+                            <ul class="method-steps-list">
+                                <li><strong>Fase 1 (Desinflamar):</strong> Limpieza hepática y descanso a las células beta del páncreas.</li>
+                                <li><strong>Fase 2 (Sincronizar):</strong> Protocolo de secuencias de alimentos y horarios metabólicos.</li>
+                                <li><strong>Fase 3 (Blindar):</strong> Flexibilidad metabólica para disfrutar comidas sociales sin picos.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tarjeta 5: El Resultado Transformador -->
+                        <div class="story-card card-success" data-index="4">
+                            <div class="card-step-badge">Paso 05 // Tu Resultado</div>
+                            <div class="card-icon-box">
+                                <span>✨</span>
+                            </div>
+                            <h3>Paz Mental y Control en tus Manos</h3>
+                            <p>Despiértate con energía renovada, niveles de glucosa en rango óptimo, mejor digestión y la tranquilidad de disfrutar la mesa con tu familia.</p>
+                            <div class="card-highlight">
+                                <strong>Tu Nueva Vida:</strong> Resultados medibles en tus análisis clínicos y una relación sana con la comida de por vida.
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="slider-arrow arrow-next" id="slider-next" aria-label="Siguiente tarjeta">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+
+                <!-- Paginación de Puntos Móvil -->
+                <div class="slider-dots" id="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+                <!-- CTA Secundario en la sección -->
+                <div class="section-cta text-center">
+                    <a href="https://pay.hotmart.com/tu-codigo-aqui" class="btn-primary btn-pulse" target="_blank" rel="noopener noreferrer">
+                        <span>ACCEDER AL MÉTODO SANO & PUNTO AHORA »</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: PREGUNTAS FRECUENTES RÁPIDAS (ACCORDION ACCESIBLE) -->
+        <section class="faq-section">
+            <div class="container faq-container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">RESOLVEMOS TUS DUDAS</span>
+                    <h2 class="section-title">Preguntas Frecuentes</h2>
+                </div>
+
+                <div class="faq-list">
+                    <details class="faq-item" open>
+                        <summary class="faq-question">
+                            <span>¿Este protocolo sustituye mi medicación médica?</span>
+                            <span class="faq-icon">+</span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>No. Este protocolo es una intervención de nutrición clínica funcional diseñada para acompañar y mejorar tu respuesta biológica. Siempre recomendamos consultar cualquier ajuste de dosis con tu médico tratante a medida que tus valores de glucosa se normalicen.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">
+                            <span>¿Tengo que comprar ingredientes exóticos o suplementos caros?</span>
+                            <span class="faq-icon">+</span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Absolutamente no. Todos los alimentos del protocolo se consiguen en tu supermercado o mercado local tradicional. El secreto radica en la combinación, preparación y orden de consumo.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">
+                            <span>¿Cómo y cuándo recibo el acceso al material?</span>
+                            <span class="faq-icon">+</span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>El acceso es 100% inmediato. Tras confirmar tu inscripción, recibirás un correo electrónico con tus credenciales seguras para acceder a la plataforma desde tu teléfono, tablet o computadora.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">
+                            <span>¿Qué garantía tengo si no veo resultados?</span>
+                            <span class="faq-icon">+</span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Cuentas con 30 días de garantía total incondicional. Si aplicas el protocolo y no notas mejoras claras en tus niveles de glucosa y energía, te devolvemos el 100% de tu dinero sin preguntas.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- CTA Final -->
+                <div class="final-cta text-center">
+                    <a href="https://pay.hotmart.com/tu-codigo-aqui" class="btn-primary btn-large" target="_blank" rel="noopener noreferrer">
+                        <span>EMPEZAR MI TRANSFORMACIÓN HOY »</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA / LEGALES -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <strong>Sano & Punto © 2026</strong> • Todos los derechos reservados.
+            </div>
+            <p class="footer-disclaimer">
+                <strong>Aviso Legal & Médico:</strong> La información provista en este sitio web tiene fines educativos y divulgativos de salud funcional. No constituye un diagnóstico médico personalizado. Los testimonios y resultados individuales pueden variar según el compromiso y estado metabólico de cada persona.
+            </p>
+            <div class="footer-links">
+                <a href="#terminos">Términos y Condiciones</a>
+                <span>•</span>
+                <a href="#privacidad">Política de Privacidad</a>
+                <span>•</span>
+                <a href="#contacto">Contacto & Soporte</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Ultraligero -->
+    <script src="app.js"></script>
+</body>
+</html>
