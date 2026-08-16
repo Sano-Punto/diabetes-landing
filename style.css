@@ -794,7 +794,6 @@ body {
 /* SECCIÓN: DASHBOARD DE RESULTADOS (fondo dinámico degradado en dos tonos verdes) */
 .proof-section {
     position: relative;
-    overflow: hidden;
     padding: 90px 0 100px;
     background: linear-gradient(135deg, var(--color-sage-500) 0%, var(--color-sage-900) 100%);
 }
@@ -829,12 +828,17 @@ body {
     fill: var(--bg-page);
 }
 
+/*
+   El desplazamiento de 1px hace que el relleno beige rebase el borde de la
+   sección. Sin él, cuando la sección cae en una posición fraccionaria de
+   píxel, el degradado verde asoma como una línea fina sobre la ola.
+*/
 .wave-divider-top {
-    top: 0;
+    top: -1px;
 }
 
 .wave-divider-bottom {
-    bottom: 0;
+    bottom: -1px;
 }
 
 .proof-section .container {
@@ -844,13 +848,16 @@ body {
 
 .proof-dashboard {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    /* minmax(0, 1fr) evita que el contenido largo fuerce columnas más anchas
+       que el contenedor en pantallas estrechas */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
     margin-bottom: 28px;
 }
 
 .stat-card {
     position: relative;
+    min-width: 0;
     background: #ffffff;
     border: 1px solid var(--border-brand);
     border-radius: 1.5rem;
@@ -859,6 +866,7 @@ body {
     flex-direction: column;
     gap: 6px;
     box-shadow: var(--shadow-soft);
+    overflow-wrap: anywhere;
 }
 
 /* Etiqueta "Ejemplo" para contenido de maqueta a reemplazar */
@@ -1008,6 +1016,248 @@ body {
 
 .legend-after i {
     background: var(--color-sage-600);
+}
+
+/* PÁGINAS LEGALES (Términos, Privacidad, Contacto) */
+.legal-page {
+    padding: 50px 0 70px;
+}
+
+.legal-container {
+    max-width: 760px;
+}
+
+.brand-logo-link {
+    text-decoration: none;
+}
+
+.legal-back {
+    display: inline-block;
+    margin-bottom: 26px;
+    color: var(--color-sage-700);
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.legal-back:hover {
+    color: var(--color-coral);
+}
+
+.legal-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 900;
+    color: var(--color-sage-950);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 8px;
+}
+
+.legal-updated {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 30px;
+}
+
+.legal-page h2 {
+    font-family: var(--font-sans);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-sage-950);
+    letter-spacing: -0.02em;
+    margin: 38px 0 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-brand);
+}
+
+.legal-page h3 {
+    font-family: var(--font-sans);
+    font-size: 1.06rem;
+    font-weight: 800;
+    color: var(--color-sage-900);
+    margin: 24px 0 8px;
+}
+
+.legal-page p {
+    margin-bottom: 14px;
+    line-height: 1.7;
+    color: var(--text-body);
+}
+
+.legal-page ul {
+    margin: 0 0 18px;
+    padding-left: 4px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.legal-page li {
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.65;
+}
+
+.legal-page li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-sage-400);
+}
+
+.legal-page a {
+    color: var(--color-sage-700);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--transition-fast);
+}
+
+.legal-page a:hover {
+    color: var(--color-coral);
+}
+
+.legal-emphasis {
+    background: var(--color-sage-50);
+    border-left: 3px solid var(--color-sage-600);
+    padding: 14px 18px;
+    border-radius: 0 1rem 1rem 0;
+    font-size: 0.95rem;
+}
+
+/* Bloques destacados de aviso */
+.legal-callout {
+    background: var(--color-sand-50);
+    border: 1px solid var(--border-brand);
+    border-left: 4px solid var(--color-sage-600);
+    border-radius: 0 1rem 1rem 0;
+    padding: 16px 20px;
+    margin: 22px 0;
+    font-size: 0.94rem;
+    line-height: 1.65;
+}
+
+.legal-callout-warn {
+    background: #fffbeb;
+    border-color: #fde68a;
+    border-left-color: #d97706;
+}
+
+.legal-callout-danger {
+    background: #fef2f2;
+    border-color: #fecaca;
+    border-left-color: #dc2626;
+}
+
+/* Tabla de tratamientos de datos */
+.legal-table-wrap {
+    overflow-x: auto;
+    margin: 18px 0 24px;
+    border: 1px solid var(--border-brand);
+    border-radius: 1rem;
+}
+
+.legal-table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    background: #ffffff;
+}
+
+.legal-table th,
+.legal-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-subtle);
+    vertical-align: top;
+}
+
+.legal-table th {
+    background: var(--color-sage-50);
+    font-family: var(--font-sans);
+    font-weight: 800;
+    color: var(--color-sage-950);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.legal-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Tarjetas de contacto */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 28px 0 10px;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: #ffffff;
+    border: 1px solid var(--border-brand);
+    border-radius: 1.5rem;
+    padding: 24px 22px;
+    box-shadow: var(--shadow-soft);
+    text-decoration: none !important;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+}
+
+.contact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--color-sage-400) 0%, var(--color-sage-800) 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.contact-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.contact-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-value {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--color-sage-950);
+    letter-spacing: -0.01em;
+    word-break: break-word;
+}
+
+.contact-note {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    margin-top: 2px;
 }
 
 /* BARRA CTA FIJA MÓVIL */
@@ -1269,7 +1519,7 @@ body {
     }
 
     .proof-dashboard {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
     }
 
@@ -1294,11 +1544,29 @@ body {
     .sticky-mobile-cta {
         display: block;
     }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .legal-page {
+        padding: 34px 0 50px;
+    }
 }
 
 @media (min-width: 769px) {
     .sticky-mobile-cta {
         display: none !important;
     }
+}
+
+/*
+   Entre 769px y 880px el carrusel ocupa casi todo el ancho disponible y las
+   flechas, colocadas a -22px, quedaban cortadas por el borde de la ventana.
+   En ese rango se sitúan por dentro del área del slider.
+*/
+@media (min-width: 769px) and (max-width: 880px) {
+    .arrow-prev { left: 4px; }
+    .arrow-next { right: 4px; }
 }
 
