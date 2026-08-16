@@ -136,7 +136,7 @@ body {
 .header-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .brand-logo {
@@ -202,29 +202,6 @@ body {
     color: var(--color-sand-700);
     text-transform: uppercase;
     letter-spacing: 0.8px;
-}
-
-.live-counter {
-    background: #ffffff;
-    color: var(--color-sage-800);
-    padding: 6px 14px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid var(--border-brand);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-}
-
-.live-indicator {
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-emerald);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--color-emerald);
-    animation: pulse 1.8s infinite;
 }
 
 /* SECCIÓN HERO */
@@ -1336,11 +1313,6 @@ body {
 
     .brand-tagline {
         display: none;
-    }
-
-    .live-counter {
-        font-size: 0.72rem;
-        padding: 4px 10px;
     }
 
     .hero-section {

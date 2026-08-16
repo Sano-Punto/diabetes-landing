@@ -212,21 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       4. PRUEBA SOCIAL: CONTADOR DINÁMICO DE ESPECTADORES
-       ========================================================================== */
-    const viewerCountElem = document.getElementById('viewer-count');
-    if (viewerCountElem) {
-        let viewers = 24;
-        setInterval(() => {
-            // Variación natural entre 19 y 32 espectadores
-            const change = Math.floor(Math.random() * 5) - 2;
-            viewers = Math.max(18, Math.min(38, viewers + change));
-            viewerCountElem.textContent = viewers;
-        }, 4500);
-    }
-
-    /* ==========================================================================
-       5. DASHBOARD DE RESULTADOS: ANIMACIÓN DE CONTEO AL ENTRAR EN VISTA
+       4. DASHBOARD DE RESULTADOS: ANIMACIÓN DE CONTEO AL ENTRAR EN VISTA
        ========================================================================== */
     const statValues = document.querySelectorAll('.stat-value[data-count]');
     if (statValues.length && 'IntersectionObserver' in window) {
@@ -258,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       6. MARQUESINA DE TESTIMONIOS: DUPLICADO PARA LOOP CONTINUO
+       5. MARQUESINA DE TESTIMONIOS: DUPLICADO PARA LOOP CONTINUO
        ========================================================================== */
     const testimonialTrack = document.getElementById('testimonial-track');
     if (testimonialTrack) {
@@ -266,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       7. BARRA CTA FIJA MÓVIL: VISIBLE SOLO DESPUÉS DEL CTA PRINCIPAL
+       6. BARRA CTA FIJA MÓVIL: VISIBLE SOLO DESPUÉS DEL CTA PRINCIPAL
        ========================================================================== */
     const stickyCta = document.getElementById('sticky-mobile-cta');
     const mainCtaBtn = document.getElementById('main-cta-btn');
