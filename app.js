@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Actualizar todos los botones CTA con el enlace de pago configurado
-    const ctaButtons = document.querySelectorAll('.btn-primary, .btn-repeat, .btn-sticky');
+    const ctaButtons = document.querySelectorAll('.btn-primary, .btn-sticky');
     ctaButtons.forEach(btn => {
         if (CONFIG.checkoutUrl && CONFIG.checkoutUrl !== "https://pay.hotmart.com/tu-codigo-aqui") {
             btn.href = CONFIG.checkoutUrl;
@@ -244,15 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       5. MARQUESINA DE TESTIMONIOS: DUPLICADO PARA LOOP CONTINUO
-       ========================================================================== */
-    const testimonialTrack = document.getElementById('testimonial-track');
-    if (testimonialTrack) {
-        testimonialTrack.innerHTML += testimonialTrack.innerHTML;
-    }
-
-    /* ==========================================================================
-       6. BARRA CTA FIJA MÓVIL: VISIBLE SOLO DESPUÉS DEL CTA PRINCIPAL
+       5. BARRA CTA FIJA MÓVIL: VISIBLE SOLO DESPUÉS DEL CTA PRINCIPAL
        ========================================================================== */
     const stickyCta = document.getElementById('sticky-mobile-cta');
     const mainCtaBtn = document.getElementById('main-cta-btn');

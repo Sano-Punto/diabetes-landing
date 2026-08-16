@@ -15,13 +15,13 @@
     <meta property="og:description" content="Aprende la secuencia nutricional de 3 fases para frenar picos de azúcar y recuperar tu energía.">
     <meta property="og:image" content="https://sanoypunto.app/icon.png">
 
-    <!-- Google Fonts con Preconnect (Outfit + DM Serif Display de Sano & Punto) -->
+    <!-- Google Fonts con Preconnect (Outfit + DM Serif Display + Montserrat de Sano & Punto) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Estilos de carga ultrarrápida -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -30,17 +30,14 @@
         <div class="container header-container">
             <div class="brand-logo">
                 <div class="brand-icon-circle">
-                    <!-- Icono Hoja Oficial -->
-                    <svg class="brand-leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
-                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-                    </svg>
+                    <!-- Logo Oficial Sano & Punto -->
+                    <img class="brand-logo-img" src="assets/logo.png" alt="Sano & Punto" width="44" height="44">
                 </div>
                 <div class="brand-text">
                     <span class="brand-name">
                         Sano <span class="brand-amp">&</span> <span class="brand-gradient"><em>Punto</em>.</span>
                     </span>
-                    <span class="brand-tagline">Nutrición Clínica & Funcional</span>
+                    <span class="brand-tagline">Nutrición Funcional</span>
                 </div>
             </div>
         </div>
@@ -120,6 +117,11 @@
 
         <!-- SECCIÓN: DASHBOARD DE RESULTADOS (PRUEBA SOCIAL CUANTITATIVA) -->
         <section class="proof-section">
+            <div class="wave-divider wave-divider-top" aria-hidden="true">
+                <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                    <path d="M0,0 L0,40 C240,90 480,0 720,20 C960,40 1200,90 1440,50 L1440,0 Z"></path>
+                </svg>
+            </div>
             <div class="container">
                 <div class="section-header">
                     <span class="section-subtitle">RESULTADOS DEL PROTOCOLO</span>
@@ -176,11 +178,11 @@
                     </div>
                 </div>
 
-                <div class="section-cta text-center">
-                    <a href="https://pay.hotmart.com/tu-codigo-aqui" class="btn-repeat" target="_blank" rel="noopener noreferrer">
-                        QUIERO APLICAR EL MÉTODO »
-                    </a>
-                </div>
+            </div>
+            <div class="wave-divider wave-divider-bottom" aria-hidden="true">
+                <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                    <path d="M0,60 C240,10 480,100 720,80 C960,60 1200,10 1440,50 L1440,100 L0,100 Z"></path>
+                </svg>
             </div>
         </section>
 
@@ -294,78 +296,6 @@
             </div>
         </section>
 
-        <!-- SECCIÓN: MARQUESINA DE TESTIMONIOS (PRUEBA SOCIAL CUALITATIVA) -->
-        <!--
-            ⚠️ AVISO PARA QUIEN PUBLIQUE ESTE SITIO:
-            Las tarjetas de esta marquesina llevan la etiqueta visual "Ejemplo" (demo-ribbon)
-            y son testimonios de maqueta (placeholder). Reemplaza el nombre, la cita y el
-            avatar por testimonios reales, verificables y con consentimiento explícito de tus
-            clientes antes de publicar, y quita la etiqueta "Ejemplo" al hacerlo. No publiques
-            testimonios inventados: en el sector salud puede constituir publicidad engañosa
-            además de ser poco ético.
-        -->
-        <section class="testimonial-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-subtitle">TESTIMONIOS</span>
-                    <h2 class="section-title">Historias de quienes ya empezaron su cambio metabólico</h2>
-                </div>
-            </div>
-
-            <div class="marquee-wrapper">
-                <div class="marquee-track" id="testimonial-track">
-                    <div class="testimonial-card">
-                        <span class="demo-ribbon">Ejemplo</span>
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-quote">"Sentí más energía después de comer y dejaron esos bajones de media tarde que me acompañaban desde hace años."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">A</div>
-                            <div class="author-info">
-                                <strong>Ana G. <em>(testimonio de ejemplo)</em></strong>
-                                <span>Agrega aquí un testimonio real</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="demo-ribbon">Ejemplo</span>
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-quote">"Lo que más noté fue la digestión: dejé de sentirme pesado después de cada comida en la segunda semana."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">M</div>
-                            <div class="author-info">
-                                <strong>Miguel R. <em>(testimonio de ejemplo)</em></strong>
-                                <span>Agrega aquí un testimonio real</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="demo-ribbon">Ejemplo</span>
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-quote">"Es el primer protocolo que logro seguir sin sentir que me estoy privando de todo en las comidas familiares."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">L</div>
-                            <div class="author-info">
-                                <strong>Lucía F. <em>(testimonio de ejemplo)</em></strong>
-                                <span>Agrega aquí un testimonio real</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="demo-ribbon">Ejemplo</span>
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-quote">"Mi médico fue quien notó el cambio en mis análisis de rutina antes de que yo se lo comentara."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">C</div>
-                            <div class="author-info">
-                                <strong>Carlos M. <em>(testimonio de ejemplo)</em></strong>
-                                <span>Agrega aquí un testimonio real</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <p class="marquee-disclaimer text-center">Testimonios de ejemplo (maqueta). Reemplázalos por experiencias reales y verificadas antes de publicar.</p>
-        </section>
 
     </main>
 
