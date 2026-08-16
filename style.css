@@ -803,6 +803,359 @@ body {
     text-align: center;
 }
 
+/* Botón CTA secundario (repetido a lo largo de la página) */
+.btn-repeat {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #f57c50 0%, #dc5c2e 100%);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 32px;
+    border-radius: 1rem;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+    box-shadow: 0 10px 28px rgba(242, 114, 68, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-repeat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(242, 114, 68, 0.38);
+}
+
+.btn-repeat:active {
+    transform: translateY(1px);
+}
+
+/* SECCIÓN: DASHBOARD DE RESULTADOS */
+.proof-section {
+    padding: 55px 0 60px;
+}
+
+.proof-dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.stat-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid var(--border-brand);
+    border-radius: 1.5rem;
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Etiqueta "Ejemplo" para contenido de maqueta a reemplazar */
+.demo-ribbon {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: var(--color-sand-100);
+    color: var(--color-sand-800);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--color-sand-300);
+}
+
+.stat-highlight {
+    background: linear-gradient(160deg, var(--color-sage-950) 0%, var(--color-sage-800) 100%);
+    border-color: var(--color-sage-950);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.stat-highlight .stat-label {
+    color: var(--color-sage-200);
+}
+
+.stat-value {
+    font-family: var(--font-sans);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-sage-950);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.stat-highlight .stat-value {
+    color: #ffffff;
+}
+
+.stat-trend {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.stat-highlight .stat-trend {
+    color: var(--color-sand-300);
+}
+
+.trend-down {
+    color: var(--color-emerald);
+}
+
+.stat-highlight .trend-down {
+    color: #6ee7b7;
+}
+
+.stat-placeholder .stat-value {
+    color: var(--color-sand-700);
+}
+
+.stat-placeholder {
+    border-style: dashed;
+}
+
+/* Gráfico conceptual de curva glucémica */
+.glucose-chart-card {
+    background: #ffffff;
+    border: 1px solid var(--border-brand);
+    border-radius: 1.75rem;
+    padding: 26px 26px 20px;
+    box-shadow: var(--shadow-card);
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.chart-header {
+    margin-bottom: 14px;
+}
+
+.chart-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--color-sage-950);
+}
+
+.chart-title em {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--text-muted);
+    font-size: 0.86rem;
+}
+
+.glucose-chart {
+    width: 100%;
+    height: 160px;
+    display: block;
+}
+
+.chart-gridline {
+    stroke: var(--border-subtle);
+    stroke-width: 1;
+}
+
+.chart-line {
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.chart-line-before {
+    stroke: var(--color-sand-500);
+    stroke-dasharray: 6 6;
+    opacity: 0.75;
+}
+
+.chart-line-after {
+    stroke: var(--color-sage-600);
+}
+
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.legend-item i {
+    width: 18px;
+    height: 3px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.legend-before i {
+    background: var(--color-sand-500);
+}
+
+.legend-after i {
+    background: var(--color-sage-600);
+}
+
+/* SECCIÓN: MARQUESINA DE TESTIMONIOS */
+.testimonial-section {
+    padding: 55px 0 45px;
+}
+
+.marquee-wrapper {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    padding: 10px 0 20px;
+    animation: marqueeScroll 32s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.testimonial-card {
+    position: relative;
+    flex: 0 0 300px;
+    background: #ffffff;
+    border: 1px solid var(--border-brand);
+    border-radius: 1.5rem;
+    padding: 24px 22px;
+    box-shadow: var(--shadow-soft);
+}
+
+.author-info em {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+.testimonial-stars {
+    color: var(--color-coral);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.testimonial-quote {
+    font-size: 0.94rem;
+    color: var(--text-body);
+    line-height: 1.55;
+    margin-bottom: 18px;
+    min-height: 66px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-sage-100);
+    color: var(--color-sage-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    border: 1px solid var(--border-brand);
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+}
+
+.author-info strong {
+    color: var(--color-sage-950);
+    font-weight: 800;
+}
+
+.author-info span {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.marquee-disclaimer {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    margin-top: 6px;
+    padding: 0 20px;
+}
+
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* BARRA CTA FIJA MÓVIL */
+.sticky-mobile-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(251, 250, 248, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border-brand);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(100%);
+    transition: transform var(--transition-smooth);
+    display: none;
+}
+
+.sticky-mobile-cta.visible {
+    transform: translateY(0);
+}
+
+.btn-sticky {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #f57c50 0%, #dc5c2e 100%);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 1rem;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-glow);
+}
+
 /* SECCIÓN FAQ ACCORDION */
 .faq-section {
     padding: 55px 0 65px;
@@ -1019,5 +1372,48 @@ body {
 
     .trust-badges {
         gap: 12px;
+    }
+
+    .proof-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px 16px;
+        border-radius: 1.25rem;
+    }
+
+    .stat-value {
+        font-size: 1.6rem;
+    }
+
+    .glucose-chart-card {
+        padding: 20px 18px 16px;
+        border-radius: 1.25rem;
+    }
+
+    .testimonial-card {
+        flex: 0 0 260px;
+    }
+
+    body {
+        padding-bottom: 78px;
+    }
+
+    .sticky-mobile-cta {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .sticky-mobile-cta {
+        display: none !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
     }
 }

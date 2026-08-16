@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Actualizar todos los botones CTA con el enlace de pago configurado
-    const ctaButtons = document.querySelectorAll('.btn-primary');
+    const ctaButtons = document.querySelectorAll('.btn-primary, .btn-repeat, .btn-sticky');
     ctaButtons.forEach(btn => {
         if (CONFIG.checkoutUrl && CONFIG.checkoutUrl !== "https://pay.hotmart.com/tu-codigo-aqui") {
             btn.href = CONFIG.checkoutUrl;
@@ -223,6 +223,60 @@ document.addEventListener('DOMContentLoaded', () => {
             viewers = Math.max(18, Math.min(38, viewers + change));
             viewerCountElem.textContent = viewers;
         }, 4500);
+    }
+
+    /* ==========================================================================
+       5. DASHBOARD DE RESULTADOS: ANIMACIÓN DE CONTEO AL ENTRAR EN VISTA
+       ========================================================================== */
+    const statValues = document.querySelectorAll('.stat-value[data-count]');
+    if (statValues.length && 'IntersectionObserver' in window) {
+        const animateCount = (el) => {
+            const target = parseInt(el.getAttribute('data-count'), 10);
+            const suffix = el.getAttribute('data-suffix') || '';
+            const duration = 1200;
+            const startTime = performance.now();
+
+            const step = (now) => {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = `${Math.round(target * eased)}${suffix}`;
+                if (progress < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        };
+
+        const statObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    animateCount(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        statValues.forEach((el) => statObserver.observe(el));
+    }
+
+    /* ==========================================================================
+       6. MARQUESINA DE TESTIMONIOS: DUPLICADO PARA LOOP CONTINUO
+       ========================================================================== */
+    const testimonialTrack = document.getElementById('testimonial-track');
+    if (testimonialTrack) {
+        testimonialTrack.innerHTML += testimonialTrack.innerHTML;
+    }
+
+    /* ==========================================================================
+       7. BARRA CTA FIJA MÓVIL: VISIBLE SOLO DESPUÉS DEL CTA PRINCIPAL
+       ========================================================================== */
+    const stickyCta = document.getElementById('sticky-mobile-cta');
+    const mainCtaBtn = document.getElementById('main-cta-btn');
+    if (stickyCta && mainCtaBtn && 'IntersectionObserver' in window) {
+        const ctaObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                stickyCta.classList.toggle('visible', !entry.isIntersecting && entry.boundingClientRect.top < 0);
+            });
+        }, { threshold: 0 });
+        ctaObserver.observe(mainCtaBtn);
     }
 
 });
