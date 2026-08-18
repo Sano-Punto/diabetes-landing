@@ -1570,3 +1570,69 @@ body {
     .arrow-next { right: 4px; }
 }
 
+/* ══════════════════════════════════════════════════════════════
+   === RECORRIDO: TIPOGRAFIA SERIF Y PALETA DE MARCA ===
+   Alinea la sección de storytelling con el lenguaje visual de los
+   documentos entregables: DM Serif Display con acentos en cursiva
+   y las insignias dentro de la paleta sage/sand de la marca.
+   ══════════════════════════════════════════════════════════════ */
+
+.storytelling-section .section-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(1.75rem, 3.6vw, 2.55rem);
+    letter-spacing: -0.01em;
+    line-height: 1.14;
+}
+
+.storytelling-section .section-title em {
+    font-style: italic;
+    color: var(--color-sand-800);
+}
+
+.story-card h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(1.45rem, 2.4vw, 1.72rem);
+    letter-spacing: -0.005em;
+    line-height: 1.16;
+    margin-bottom: 14px;
+}
+
+.story-card h3 em {
+    font-style: italic;
+    color: var(--color-sand-800);
+}
+
+/* Insignias de paso: progresión coral → arena → verde, dentro de la marca */
+.card-pain .card-step-badge    { background: #fdeee6;                  color: #a83509; }
+.card-error .card-step-badge   { background: var(--color-sand-100);    color: var(--color-sand-800); }
+.card-science .card-step-badge { background: var(--color-sage-100);    color: var(--color-sage-800); }
+.card-method .card-step-badge  { background: var(--color-sage-200);    color: var(--color-sage-900); }
+.card-success .card-step-badge { background: var(--color-emerald-light); color: #0b6b48; }
+
+/* El filete del recuadro inferior sigue la misma progresión */
+.card-pain .card-highlight    { border-left-color: var(--color-coral); }
+.card-error .card-highlight   { border-left-color: var(--color-sand-700); }
+.card-science .card-highlight { border-left-color: var(--color-sage-600); }
+.card-method .card-highlight  { border-left-color: var(--color-sage-700); }
+.card-success .card-highlight { border-left-color: var(--color-emerald); }
+
+/* Un poco más de aire y jerarquía dentro de la tarjeta */
+.card-highlight {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    padding: 15px 19px;
+}
+
+.story-card p {
+    line-height: 1.6;
+}
+
+/* Iconografía de línea: el trazo sigue la progresión de cada paso */
+.card-icon-box svg { display: block; }
+.card-pain .card-icon-box    { color: #a83509; background-color: #fdeee6; border-color: #f6d5c6; }
+.card-error .card-icon-box   { color: var(--color-sand-800); background-color: var(--color-sand-50); }
+.card-science .card-icon-box { color: var(--color-sage-700); }
+.card-method .card-icon-box  { color: var(--color-sage-800); background-color: var(--color-sage-100); }
+.card-success .card-icon-box { color: #0b6b48; background-color: var(--color-emerald-light); border-color: #bfe8d5; }

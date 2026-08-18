@@ -11,3 +11,12 @@ Thumbs.db
 *.token
 credentials.json
 token.txt
+
+# Trabajo interno del producto: NO debe publicarse en el repositorio
+investigacion/
+producto/
+ebook/
+.claude/
+
+# Documento de traspaso interno
+RESUMEN-CONTEXTO-NUEVO-AGENTE.md
