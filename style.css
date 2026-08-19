@@ -1628,3 +1628,194 @@ body {
 .card-science .card-icon-box { color: var(--color-sage-700); }
 .card-method .card-icon-box  { color: var(--color-sage-800); background-color: var(--color-sage-100); }
 .card-success .card-icon-box { color: #0b6b48; background-color: var(--color-emerald-light); border-color: #bfe8d5; }
+
+/* ==========================================================================
+   SECCIÓN: OFERTA GRAND SLAM & STACK DE VALOR (ALEX HORMOZI FRAMEWORK)
+   ========================================================================== */
+.stack-section {
+    padding: 60px 0 80px 0;
+    background: linear-gradient(180deg, var(--bg-page) 0%, var(--color-sand-100) 100%);
+}
+
+.stack-card-container {
+    background: #ffffff;
+    border: 2px solid var(--border-brand);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+}
+
+.stack-badge {
+    display: inline-block;
+    background: var(--color-sage-800);
+    color: #ffffff;
+    font-family: var(--font-brand);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.stack-title {
+    font-family: var(--font-serif);
+    font-size: 2.1rem;
+    color: var(--text-heading);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.stack-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.stack-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.stack-item {
+    display: flex;
+    gap: 16px;
+    background: var(--color-sand-50);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px;
+    padding: 20px;
+    align-items: flex-start;
+}
+
+.highlight-stack-item {
+    background: #ecfdf5;
+    border-color: #a7f3d0;
+}
+
+.stack-item-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.stack-item-content {
+    width: 100%;
+}
+
+.stack-item-content h3 {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.item-value {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--color-sage-700);
+    background: var(--color-sage-100);
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+.highlight-stack-item .item-value {
+    color: #065f46;
+    background: #d1fae5;
+}
+
+.stack-item-content p {
+    font-size: 0.95rem;
+    color: var(--text-body);
+    line-height: 1.5;
+}
+
+.stack-price-box {
+    background: var(--color-sage-900);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+}
+
+.price-total-value {
+    font-size: 1.1rem;
+    color: var(--color-sage-200);
+    margin-bottom: 12px;
+}
+
+.price-total-value del {
+    color: var(--color-coral);
+    font-weight: 700;
+}
+
+.price-main-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.price-label {
+    font-size: 0.95rem;
+    color: var(--color-sage-200);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.price-amount {
+    font-family: var(--font-brand);
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.1;
+    margin: 4px 0;
+}
+
+.price-amount small {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-sage-300);
+}
+
+.price-sub {
+    font-size: 0.88rem;
+    color: var(--color-sage-300);
+}
+
+.stack-cta-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media (max-width: 640px) {
+    .stack-card-container {
+        padding: 24px 16px;
+    }
+    .stack-title {
+        font-size: 1.5rem;
+    }
+    .stack-item {
+        flex-direction: column;
+        gap: 10px;
+        padding: 16px;
+    }
+    .stack-item-content h3 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .price-amount {
+        font-size: 2.8rem;
+    }
+}
