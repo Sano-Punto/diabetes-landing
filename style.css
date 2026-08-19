@@ -714,9 +714,9 @@ body {
 .card-success .card-step-badge { background: var(--color-emerald-light); color: #059669; }
 
 .card-icon-box {
-    width: 64px;
-    height: 64px;
-    border-radius: 18px;
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
     background-color: var(--color-sage-50);
     border: 1px solid var(--border-brand);
     display: flex;
@@ -724,6 +724,7 @@ body {
     justify-content: center;
     font-size: 1.7rem;
     margin-bottom: 24px;
+    align-self: center;
 }
 
 .story-card h3 {
@@ -1686,8 +1687,8 @@ body {
 /* Iconografía de línea: el trazo sigue la progresión de cada paso */
 .card-icon-box svg {
     display: block;
-    width: 32px !important;
-    height: 32px !important;
+    width: 40px !important;
+    height: 40px !important;
 }
 .card-pain .card-icon-box    { color: #a83509; background-color: #fdeee6; border-color: #f6d5c6; }
 .card-error .card-icon-box   { color: var(--color-sand-800); background-color: var(--color-sand-50); }
