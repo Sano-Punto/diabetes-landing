@@ -1550,6 +1550,19 @@ body {
     .story-card {
         padding: 26px 20px;
         border-radius: 1.5rem;
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+    }
+
+    .cards-track {
+        padding: 15px 20px 25px;
+    }
+
+    .swipe-hint {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
     }
 
     .story-steps-indicator {
@@ -1884,5 +1897,32 @@ body {
     }
     .price-amount {
         font-size: 2.8rem;
+    }
+}
+
+/* Indicador de Deslizar (Swipe Hint) */
+.swipe-hint {
+    display: none;
+    text-align: center;
+    color: var(--color-sand-800);
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.swipe-icon {
+    display: inline-block;
+    animation: swipeAnim 2s infinite ease-in-out;
+}
+
+@keyframes swipeAnim {
+    0%, 100% {
+        transform: translateX(-4px);
+    }
+    50% {
+        transform: translateX(4px);
     }
 }

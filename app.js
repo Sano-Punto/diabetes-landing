@@ -13,13 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
         checkoutUrl: "https://pay.hotmart.com/O107226641S?checkoutMode=10&bid=1787101078743",
 
         // Configuración del video VSL:
-        // Tipo: 'mp4' | 'youtube' | 'vimeo'
+        // Tipo: 'mp4' | 'youtube' | 'vimeo' | 'wistia'
         videoType: 'mp4',
         
         // URL o ID del video:
         // - Si es 'mp4': "https://tu-servidor.com/video-vsl.mp4" o ruta local
         // - Si es 'youtube': "ID_DEL_VIDEO" (ej: "dQw4w9WgXcQ")
         // - Si es 'vimeo': "ID_DEL_VIDEO" (ej: "76979871")
+        // - Si es 'wistia': "ID_DEL_VIDEO" (ej: "a1b2c3d4e5")
         videoSource: "", 
 
         // Poster / Portada personalizada (opcional):
@@ -64,6 +65,22 @@ document.addEventListener('DOMContentLoaded', () => {
                         title="VSL Sano y Punto" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen>
+                    </iframe>
+                `;
+            } else if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
+                vslPlayerContainer.innerHTML = `
+                    <iframe 
+                        src="https://fast.wistia.net/embed/iframe/${CONFIG.videoSource}?autoplay=1" 
+                        title="VSL Sano y Punto" 
+                        allow="autoplay; fullscreen" 
+                        allowtransparency="true" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        class="wistia_embed" 
+                        name="wistia_embed" 
+                        msallowfullscreen 
+                        width="100%" 
+                        height="100%">
                     </iframe>
                 `;
             } else {
