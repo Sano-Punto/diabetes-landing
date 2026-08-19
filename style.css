@@ -261,6 +261,23 @@ body {
     display: none;
 }
 
+.underline-coral {
+    position: relative;
+    display: inline;
+}
+
+.underline-coral::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.04em;
+    height: 5px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #f57c50 0%, #dc5c2e 100%);
+    z-index: -1;
+}
+
 .sub-headline {
     font-size: clamp(1rem, 1.8vw + 0.2rem, 1.16rem);
     color: var(--text-muted);
