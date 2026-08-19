@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================================== */
     const CONFIG = {
         // Enlace a tu pasarela de pago o WhatsApp (Hotmart, Stripe, etc.)
-        checkoutUrl: "https://pay.hotmart.com/tu-codigo-aqui",
+        checkoutUrl: "https://pay.hotmart.com/O107226641S?checkoutMode=10&bid=1787101078743",
 
         // Configuración del video VSL:
         // Tipo: 'mp4' | 'youtube' | 'vimeo'
