@@ -378,6 +378,52 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+/* Tarjeta "Tu video ya ha comenzado" (estilo mute/unmute) */
+.vsl-mute-card {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1.25rem;
+    padding: 28px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.vsl-mute-title {
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.vsl-mute-icon {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vsl-mute-icon svg {
+    width: 48px;
+    height: 48px;
+}
+
+.vsl-mute-subtitle {
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
 .vsl-player-container {
     width: 100%;
     height: 100%;
