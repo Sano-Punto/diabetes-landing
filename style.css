@@ -258,15 +258,7 @@ body {
 }
 
 .highlight-text::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 0;
-    right: 0;
-    height: 6px;
-    background: rgba(242, 114, 68, 0.2);
-    border-radius: 3px;
-    z-index: -1;
+    display: none;
 }
 
 .sub-headline {
