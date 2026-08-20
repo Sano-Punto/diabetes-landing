@@ -404,30 +404,30 @@ body {
     background: rgba(0, 0, 0, 0.78);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: 1rem;
-    padding: 18px 24px;
+    border-radius: 0.8rem;
+    padding: 12px 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-    max-width: 320px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    max-width: 240px;
     text-align: center;
 }
 
 .vsl-mute-title {
     color: #ffffff;
     font-family: var(--font-sans);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 800;
     letter-spacing: -0.01em;
 }
 
 .vsl-mute-icon {
     position: relative;
-    width: 44px;
-    height: 44px;
+    width: 32px;
+    height: 32px;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -435,14 +435,14 @@ body {
 }
 
 .vsl-mute-icon svg {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
 }
 
 .vsl-mute-subtitle {
     color: #ffffff;
     font-family: var(--font-sans);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 800;
     letter-spacing: -0.01em;
 }
@@ -450,11 +450,11 @@ body {
 .vsl-mute-duration {
     color: var(--color-sand-300);
     font-family: var(--font-sans);
-    font-size: 0.72rem;
+    font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    margin-top: 2px;
+    margin-top: 1px;
 }
 
 .vsl-player-container {
