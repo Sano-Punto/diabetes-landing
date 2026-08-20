@@ -303,13 +303,13 @@ body {
     background: var(--color-sage-950);
     border-radius: 2rem;
     overflow: hidden;
-    box-shadow: 0 20px 50px -10px rgba(18, 30, 18, 0.25);
+    box-shadow: 0 15px 35px -5px rgba(18, 30, 18, 0.12), 0 5px 15px -5px rgba(0, 0, 0, 0.05);
     border: 3px solid rgba(255, 255, 255, 0.6);
     transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .vsl-frame:hover {
-    box-shadow: 0 25px 60px -10px rgba(18, 30, 18, 0.35);
+    box-shadow: 0 20px 45px -10px rgba(18, 30, 18, 0.18), 0 8px 20px -5px rgba(0, 0, 0, 0.08);
 }
 
 .vsl-facade {
