@@ -43,6 +43,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const vslVideo = document.getElementById('vsl-video');
     const vslProgress = document.getElementById('vsl-progress');
 
+    // Cargar video de Wistia muteado en segundo plano en la carga inicial (para que se vea el movimiento detrás del banner)
+    if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
+        if (vslPlayerContainer) {
+            vslPlayerContainer.style.display = 'block';
+            vslPlayerContainer.innerHTML = `
+                <iframe 
+                    src="https://fast.wistia.net/embed/iframe/${CONFIG.videoSource}?autoplay=1&muted=1" 
+                    title="VSL Sano y Punto" 
+                    allow="autoplay; fullscreen" 
+                    allowtransparency="true" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    class="wistia_embed" 
+                    name="wistia_embed" 
+                    msallowfullscreen 
+                    width="100%" 
+                    height="100%">
+                </iframe>
+            `;
+        }
+        if (vslFacade) {
+            vslFacade.classList.add('vsl-facade-transparent');
+        }
+    }
+
     if (vslFacade) {
         vslFacade.addEventListener('click', () => {
             // Ocultar fachada y mostrar reproductor
