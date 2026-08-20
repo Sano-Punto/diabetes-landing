@@ -49,6 +49,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let wistiaLoaded = false;
 
     if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
+        // Mecanismo de seguridad: si por alguna razón lenta de conexión o políticas de navegador
+        // el video no reproduce en 4.5s, desvanecer la fachada verde de todos modos para que el usuario acceda al player.
+        const safetyTimeout = setTimeout(() => {
+            if (vslFacade && vslFacade.style.display !== 'none') {
+                console.log("VSL: Fallback de seguridad activado por retraso de carga.");
+                vslFacade.style.opacity = '0';
+                setTimeout(() => {
+                    vslFacade.style.display = 'none';
+                }, 600);
+            }
+        }, 4500);
+
         // Inicializar Wistia JS API con opciones para reproducir silenciado automáticamente
         window._wq = window._wq || [];
         window._wq.push({ 
@@ -63,8 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 wistiaVideoInstance = video;
                 wistiaLoaded = true;
 
-                // Cuando el video comience a reproducirse en el fondo (silenciado), desvanecer la fachada completa (fondo y banner)
+                // Cuando el video comience a reproducirse en el fondo (silenciado), desvanecer la fachada completa
                 video.bind('play', function() {
+                    clearTimeout(safetyTimeout); // Limpiar timeout de seguridad
                     if (vslFacade && vslFacade.style.display !== 'none') {
                         vslFacade.style.opacity = '0';
                         setTimeout(() => {
@@ -83,10 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="wistia_embed wistia_async_${CONFIG.videoSource}" style="width:100%;height:100%;position:relative;"></div>
                 `;
 
-                // Cargar script de la API de Wistia solo después de inyectar el div para resguardar PageSpeed
-                if (!document.querySelector('script[src*="wistia.com/player.js"]')) {
+                // Cargar motor clásico E-v1.js de Wistia solo después de inyectar el div para resguardar PageSpeed
+                if (!document.querySelector('script[src*="wistia.com/assets/external/E-v1.js"]')) {
                     const script = document.createElement('script');
-                    script.src = "https://fast.wistia.com/player.js";
+                    script.src = "https://fast.wistia.com/assets/external/E-v1.js";
                     script.async = true;
                     document.head.appendChild(script);
                 }
