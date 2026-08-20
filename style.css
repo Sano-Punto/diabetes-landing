@@ -293,7 +293,7 @@ body {
 }
 
 .vsl-container {
-    max-width: 820px;
+    max-width: 900px;
 }
 
 .vsl-frame {
@@ -401,31 +401,33 @@ body {
 
 /* Tarjeta "Tu video ya ha comenzado" (estilo mute/unmute) */
 .vsl-mute-card {
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 1.25rem;
-    padding: 28px 36px;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    padding: 18px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    max-width: 320px;
+    text-align: center;
 }
 
 .vsl-mute-title {
     color: #ffffff;
     font-family: var(--font-sans);
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     font-weight: 800;
     letter-spacing: -0.01em;
 }
 
 .vsl-mute-icon {
     position: relative;
-    width: 56px;
-    height: 56px;
+    width: 44px;
+    height: 44px;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -433,14 +435,14 @@ body {
 }
 
 .vsl-mute-icon svg {
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
 }
 
 .vsl-mute-subtitle {
     color: #ffffff;
     font-family: var(--font-sans);
-    font-size: 1.05rem;
+    font-size: 0.9rem;
     font-weight: 800;
     letter-spacing: -0.01em;
 }
@@ -448,7 +450,7 @@ body {
 .vsl-mute-duration {
     color: var(--color-sand-300);
     font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
