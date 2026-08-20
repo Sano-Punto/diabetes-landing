@@ -49,43 +49,41 @@ document.addEventListener('DOMContentLoaded', () => {
     let wistiaLoaded = false;
 
     if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
-        // Inicializar Wistia JS API
+        // Inicializar Wistia JS API con opciones para reproducir silenciado automáticamente
         window._wq = window._wq || [];
-        window._wq.push({ id: CONFIG.videoSource, onReady: function(video) {
-            wistiaVideoInstance = video;
-            wistiaLoaded = true;
+        window._wq.push({ 
+            id: CONFIG.videoSource, 
+            options: {
+                autoPlay: true,
+                silentAutoPlay: 'allow',
+                muted: true,
+                playerColor: "2c422c"
+            },
+            onReady: function(video) {
+                wistiaVideoInstance = video;
+                wistiaLoaded = true;
 
-            // Cuando el video comience a reproducirse en el fondo (silenciado), desvanecer la fachada completa (fondo y banner)
-            video.bind('play', function() {
-                if (vslFacade && vslFacade.style.display !== 'none') {
-                    vslFacade.style.opacity = '0';
-                    setTimeout(() => {
-                        vslFacade.style.display = 'none';
-                    }, 600);
-                }
-            });
-        }});
+                // Cuando el video comience a reproducirse en el fondo (silenciado), desvanecer la fachada completa (fondo y banner)
+                video.bind('play', function() {
+                    if (vslFacade && vslFacade.style.display !== 'none') {
+                        vslFacade.style.opacity = '0';
+                        setTimeout(() => {
+                            vslFacade.style.display = 'none';
+                        }, 600);
+                    }
+                });
+            }
+        });
 
         setTimeout(() => {
             if (vslPlayerContainer) {
                 vslPlayerContainer.style.display = 'block';
+                // Usar embed nativo (div) de Wistia para tener acceso directo sin restricciones cross-origin de iframes
                 vslPlayerContainer.innerHTML = `
-                    <iframe 
-                        src="https://fast.wistia.net/embed/iframe/${CONFIG.videoSource}?autoplay=1&muted=1" 
-                        title="VSL Sano y Punto" 
-                        allow="autoplay; fullscreen" 
-                        allowtransparency="true" 
-                        frameborder="0" 
-                        scrolling="no" 
-                        class="wistia_embed wistia_async_${CONFIG.videoSource}" 
-                        name="wistia_embed" 
-                        msallowfullscreen 
-                        width="100%" 
-                        height="100%">
-                    </iframe>
+                    <div class="wistia_embed wistia_async_${CONFIG.videoSource}" style="width:100%;height:100%;position:relative;"></div>
                 `;
 
-                // Cargar script de la API de Wistia solo después de inyectar el iframe para resguardar PageSpeed
+                // Cargar script de la API de Wistia solo después de inyectar el div para resguardar PageSpeed
                 if (!document.querySelector('script[src*="wistia.com/player.js"]')) {
                     const script = document.createElement('script');
                     script.src = "https://fast.wistia.com/player.js";
