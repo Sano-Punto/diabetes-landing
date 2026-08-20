@@ -14,14 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Configuración del video VSL:
         // Tipo: 'mp4' | 'youtube' | 'vimeo' | 'wistia'
-        videoType: 'mp4',
+        videoType: 'wistia',
         
         // URL o ID del video:
         // - Si es 'mp4': "https://tu-servidor.com/video-vsl.mp4" o ruta local
         // - Si es 'youtube': "ID_DEL_VIDEO" (ej: "dQw4w9WgXcQ")
         // - Si es 'vimeo': "ID_DEL_VIDEO" (ej: "76979871")
         // - Si es 'wistia': "ID_DEL_VIDEO" (ej: "a1b2c3d4e5")
-        videoSource: "", 
+        videoSource: "tn87tguaoq", 
 
         // Poster / Portada personalizada (opcional):
         videoPoster: ""
