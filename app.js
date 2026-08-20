@@ -45,9 +45,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cargar video de Wistia muteado en segundo plano en la carga inicial (para que se vea el movimiento detrás del banner)
     // Diferido por 1.5 segundos para optimizar el Speed Index y no bloquear la carga inicial en móviles
+    let wistiaVideoInstance = null;
+    let wistiaLoaded = false;
+
     if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
+        // Inicializar Wistia JS API
+        window._wq = window._wq || [];
+        window._wq.push({ id: CONFIG.videoSource, onReady: function(video) {
+            wistiaVideoInstance = video;
+            wistiaLoaded = true;
+
+            // Cuando el video comience a reproducirse en el fondo (silenciado), desvanecer el banner de carga suavemente
+            video.bind('play', function() {
+                if (vslFacade && vslFacade.style.display !== 'none') {
+                    vslFacade.style.transition = 'opacity 0.6s ease';
+                    vslFacade.style.opacity = '0';
+                    setTimeout(() => {
+                        vslFacade.style.display = 'none';
+                    }, 600);
+                }
+            });
+        }});
+
         setTimeout(() => {
-            if (vslPlayerContainer) {
+            if (vslPlayerContainer && !vslFacade.classList.contains('clicked')) {
                 vslPlayerContainer.style.display = 'block';
                 vslPlayerContainer.innerHTML = `
                     <iframe 
@@ -57,27 +78,55 @@ document.addEventListener('DOMContentLoaded', () => {
                         allowtransparency="true" 
                         frameborder="0" 
                         scrolling="no" 
-                        class="wistia_embed" 
+                        class="wistia_embed wistia_async_${CONFIG.videoSource}" 
                         name="wistia_embed" 
                         msallowfullscreen 
                         width="100%" 
                         height="100%">
                     </iframe>
                 `;
-            }
-            if (vslFacade) {
-                vslFacade.classList.add('vsl-facade-transparent');
+                // Hacer el fondo del banner transparente para dejar ver el video cargando detrás
+                if (vslFacade) {
+                    vslFacade.classList.add('vsl-facade-transparent');
+                }
             }
         }, 1500);
     }
 
     if (vslFacade) {
         vslFacade.addEventListener('click', () => {
-            // Ocultar fachada y mostrar reproductor
+            // Registrar que se hizo clic para evitar la carga automática diferida si ya se hizo clic manual
+            vslFacade.classList.add('clicked');
+            
+            // Ocultar fachada y mostrar reproductor inmediatamente
             vslFacade.style.display = 'none';
             vslPlayerContainer.style.display = 'block';
 
-            if (CONFIG.videoType === 'youtube' && CONFIG.videoSource) {
+            if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
+                if (wistiaVideoInstance && wistiaLoaded) {
+                    // Si el video de fondo ya está cargado y reproduciéndose, simplemente desmutearlo y reiniciarlo
+                    wistiaVideoInstance.unmute();
+                    wistiaVideoInstance.time(0);
+                    wistiaVideoInstance.play();
+                } else {
+                    // Cargar directamente el iframe sin silenciar (unmuted)
+                    vslPlayerContainer.innerHTML = `
+                        <iframe 
+                            src="https://fast.wistia.net/embed/iframe/${CONFIG.videoSource}?autoplay=1" 
+                            title="VSL Sano y Punto" 
+                            allow="autoplay; fullscreen" 
+                            allowtransparency="true" 
+                            frameborder="0" 
+                            scrolling="no" 
+                            class="wistia_embed wistia_async_${CONFIG.videoSource}" 
+                            name="wistia_embed" 
+                            msallowfullscreen 
+                            width="100%" 
+                            height="100%">
+                        </iframe>
+                    `;
+                }
+            } else if (CONFIG.videoType === 'youtube' && CONFIG.videoSource) {
                 vslPlayerContainer.innerHTML = `
                     <iframe 
                         src="https://www.youtube.com/embed/${CONFIG.videoSource}?autoplay=1&rel=0&modestbranding=1&playsinline=1" 
@@ -93,22 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         title="VSL Sano y Punto" 
                         allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen>
-                    </iframe>
-                `;
-            } else if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
-                vslPlayerContainer.innerHTML = `
-                    <iframe 
-                        src="https://fast.wistia.net/embed/iframe/${CONFIG.videoSource}?autoplay=1" 
-                        title="VSL Sano y Punto" 
-                        allow="autoplay; fullscreen" 
-                        allowtransparency="true" 
-                        frameborder="0" 
-                        scrolling="no" 
-                        class="wistia_embed" 
-                        name="wistia_embed" 
-                        msallowfullscreen 
-                        width="100%" 
-                        height="100%">
                     </iframe>
                 `;
             } else {
