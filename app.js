@@ -55,10 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
             wistiaVideoInstance = video;
             wistiaLoaded = true;
 
-            // Cuando el video comience a reproducirse en el fondo (silenciado), desvanecer el banner de carga suavemente
+            // Cuando el video comience a reproducirse en el fondo (silenciado), desvanecer la fachada completa (fondo y banner)
             video.bind('play', function() {
                 if (vslFacade && vslFacade.style.display !== 'none') {
-                    vslFacade.style.transition = 'opacity 0.6s ease';
                     vslFacade.style.opacity = '0';
                     setTimeout(() => {
                         vslFacade.style.display = 'none';
@@ -85,9 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         height="100%">
                     </iframe>
                 `;
-                // Hacer el fondo del banner transparente para dejar ver el video cargando detrás
-                if (vslFacade) {
-                    vslFacade.classList.add('vsl-facade-transparent');
+
+                // Cargar script de la API de Wistia solo después de inyectar el iframe para resguardar PageSpeed
+                if (!document.querySelector('script[src*="wistia.com/player.js"]')) {
+                    const script = document.createElement('script');
+                    script.src = "https://fast.wistia.com/player.js";
+                    script.async = true;
+                    document.head.appendChild(script);
                 }
             }
         }, 1500);
@@ -103,6 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
             vslPlayerContainer.style.display = 'block';
 
             if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
+                // Cargar script de Wistia inmediatamente si aún no se ha cargado
+                if (!document.querySelector('script[src*="wistia.com/player.js"]')) {
+                    const script = document.createElement('script');
+                    script.src = "https://fast.wistia.com/player.js";
+                    script.async = true;
+                    document.head.appendChild(script);
+                }
+
                 if (wistiaVideoInstance && wistiaLoaded) {
                     // Si el video de fondo ya está cargado y reproduciéndose, simplemente desmutearlo y reiniciarlo
                     wistiaVideoInstance.unmute();
