@@ -66,9 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window._wq.push({ 
             id: CONFIG.videoSource, 
             options: {
-                autoPlay: true,
-                silentAutoPlay: 'allow',
-                muted: true,
                 playerColor: "2c422c"
             },
             onReady: function(video) {
