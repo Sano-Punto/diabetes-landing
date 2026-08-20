@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }});
 
         setTimeout(() => {
-            if (vslPlayerContainer && !vslFacade.classList.contains('clicked')) {
+            if (vslPlayerContainer) {
                 vslPlayerContainer.style.display = 'block';
                 vslPlayerContainer.innerHTML = `
                     <iframe 
@@ -96,48 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500);
     }
 
-    if (vslFacade) {
+    // El manejador de clic solo actúa en reproductores que no sean Wistia (Youtube, Vimeo, HTML5)
+    // Para Wistia, el banner se desvanece 100% de forma automática cuando el video inicia la reproducción
+    if (vslFacade && CONFIG.videoType !== 'wistia') {
         vslFacade.addEventListener('click', () => {
-            // Registrar que se hizo clic para evitar la carga automática diferida si ya se hizo clic manual
-            vslFacade.classList.add('clicked');
-            
             // Ocultar fachada y mostrar reproductor inmediatamente
             vslFacade.style.display = 'none';
             vslPlayerContainer.style.display = 'block';
 
-            if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
-                // Cargar script de Wistia inmediatamente si aún no se ha cargado
-                if (!document.querySelector('script[src*="wistia.com/player.js"]')) {
-                    const script = document.createElement('script');
-                    script.src = "https://fast.wistia.com/player.js";
-                    script.async = true;
-                    document.head.appendChild(script);
-                }
-
-                if (wistiaVideoInstance && wistiaLoaded) {
-                    // Si el video de fondo ya está cargado y reproduciéndose, simplemente desmutearlo y reiniciarlo
-                    wistiaVideoInstance.unmute();
-                    wistiaVideoInstance.time(0);
-                    wistiaVideoInstance.play();
-                } else {
-                    // Cargar directamente el iframe sin silenciar (unmuted)
-                    vslPlayerContainer.innerHTML = `
-                        <iframe 
-                            src="https://fast.wistia.net/embed/iframe/${CONFIG.videoSource}?autoplay=1" 
-                            title="VSL Sano y Punto" 
-                            allow="autoplay; fullscreen" 
-                            allowtransparency="true" 
-                            frameborder="0" 
-                            scrolling="no" 
-                            class="wistia_embed wistia_async_${CONFIG.videoSource}" 
-                            name="wistia_embed" 
-                            msallowfullscreen 
-                            width="100%" 
-                            height="100%">
-                        </iframe>
-                    `;
-                }
-            } else if (CONFIG.videoType === 'youtube' && CONFIG.videoSource) {
+            if (CONFIG.videoType === 'youtube' && CONFIG.videoSource) {
                 vslPlayerContainer.innerHTML = `
                     <iframe 
                         src="https://www.youtube.com/embed/${CONFIG.videoSource}?autoplay=1&rel=0&modestbranding=1&playsinline=1" 
