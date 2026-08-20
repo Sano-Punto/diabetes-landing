@@ -44,28 +44,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const vslProgress = document.getElementById('vsl-progress');
 
     // Cargar video de Wistia muteado en segundo plano en la carga inicial (para que se vea el movimiento detrás del banner)
+    // Diferido por 1.5 segundos para optimizar el Speed Index y no bloquear la carga inicial en móviles
     if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
-        if (vslPlayerContainer) {
-            vslPlayerContainer.style.display = 'block';
-            vslPlayerContainer.innerHTML = `
-                <iframe 
-                    src="https://fast.wistia.net/embed/iframe/${CONFIG.videoSource}?autoplay=1&muted=1" 
-                    title="VSL Sano y Punto" 
-                    allow="autoplay; fullscreen" 
-                    allowtransparency="true" 
-                    frameborder="0" 
-                    scrolling="no" 
-                    class="wistia_embed" 
-                    name="wistia_embed" 
-                    msallowfullscreen 
-                    width="100%" 
-                    height="100%">
-                </iframe>
-            `;
-        }
-        if (vslFacade) {
-            vslFacade.classList.add('vsl-facade-transparent');
-        }
+        setTimeout(() => {
+            if (vslPlayerContainer) {
+                vslPlayerContainer.style.display = 'block';
+                vslPlayerContainer.innerHTML = `
+                    <iframe 
+                        src="https://fast.wistia.net/embed/iframe/${CONFIG.videoSource}?autoplay=1&muted=1" 
+                        title="VSL Sano y Punto" 
+                        allow="autoplay; fullscreen" 
+                        allowtransparency="true" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        class="wistia_embed" 
+                        name="wistia_embed" 
+                        msallowfullscreen 
+                        width="100%" 
+                        height="100%">
+                    </iframe>
+                `;
+            }
+            if (vslFacade) {
+                vslFacade.classList.add('vsl-facade-transparent');
+            }
+        }, 1500);
     }
 
     if (vslFacade) {
