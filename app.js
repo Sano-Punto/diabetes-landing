@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     vslFacade.style.display = 'none';
                 }, 600);
             }
-        }, 6500);
+        }, 5000);
 
         // Inicializar Wistia JS API con opciones para reproducir silenciado automáticamente
         window._wq = window._wq || [];
