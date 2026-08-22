@@ -49,8 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let wistiaLoaded = false;
 
     if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
-        // Mecanismo de seguridad: si por alguna razón lenta de conexión o políticas de navegador
-        // el video no reproduce en 4.5s, desvanecer la fachada verde de todos modos para que el usuario acceda al player.
         const safetyTimeout = setTimeout(() => {
             if (vslFacade && vslFacade.style.display !== 'none') {
                 console.log("VSL: Fallback de seguridad activado por retraso de carga.");
@@ -59,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     vslFacade.style.display = 'none';
                 }, 600);
             }
-        }, 4500);
+        }, 6500);
 
         // Inicializar Wistia JS API con opciones para reproducir silenciado automáticamente
         window._wq = window._wq || [];
@@ -109,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.head.appendChild(script);
                 }
             }
-        }, 1500);
+        }, 3000);
     }
 
     // El manejador de clic solo actúa en reproductores que no sean Wistia (Youtube, Vimeo, HTML5)
