@@ -82,6 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         }, 600);
                     }
                 });
+
+                // Solución para Android: Forzar el volumen al 100% (1.0) en cuanto el usuario desmutee
+                video.bind('volumechange', function() {
+                    const currentVol = video.volume();
+                    if (currentVol > 0 && currentVol < 1.0) {
+                        video.volume(1.0);
+                    }
+                });
             }
         });
 
