@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     vslFacade.style.display = 'none';
                 }, 600);
             }
-        }, 5000);
+        }, 4000);
 
         // Inicializar Wistia JS API con opciones para reproducir silenciado automáticamente
         window._wq = window._wq || [];
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.head.appendChild(script);
                 }
             }
-        }, 3000);
+        }, 2000);
     }
 
     // El manejador de clic solo actúa en reproductores que no sean Wistia (Youtube, Vimeo, HTML5)
