@@ -304,6 +304,8 @@ body {
     box-shadow: 0 15px 35px -5px rgba(18, 30, 18, 0.12), 0 5px 15px -5px rgba(0, 0, 0, 0.05);
     border: 3px solid rgba(255, 255, 255, 0.6);
     transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    contain: layout paint;
+    content-visibility: visible;
 }
 
 .vsl-frame:hover {
@@ -458,12 +460,17 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
+    overflow: hidden;
 }
 
 .vsl-player-container video, 
-.vsl-player-container iframe {
-    width: 100%;
-    height: 100%;
+.vsl-player-container iframe,
+.vsl-player-container .wistia_embed,
+.vsl-player-container .wistia_async_tn87tguaoq {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
     border: none;
     display: block;
 }
@@ -937,6 +944,11 @@ body {
     gap: 6px;
     box-shadow: var(--shadow-soft);
     overflow-wrap: anywhere;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.stat-card:active {
+    transform: scale(0.99);
 }
 
 /* Etiqueta "Ejemplo" para contenido de maqueta a reemplazar */
@@ -976,6 +988,9 @@ body {
     color: var(--color-sage-950);
     letter-spacing: -0.02em;
     line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+    min-height: 1.15em;
+    display: inline-block;
 }
 
 .stat-highlight .stat-value {

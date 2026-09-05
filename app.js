@@ -3,6 +3,19 @@
  * Protocolo de Control Glucémico (Diabetes)
  */
 
+// Blindaje contra excepciones silenciosas en WebViews de Android (Facebook/Instagram in-app browsers)
+window.addEventListener('error', function(event) {
+    if (event && event.message) {
+        var msg = String(event.message).toLowerCase();
+        if (msg.indexOf('postmessage') !== -1 || 
+            msg.indexOf('java object') !== -1 || 
+            msg.indexOf('script error') !== -1) {
+            // Suprimir error para evitar romper la ejecución en WebViews
+            return true;
+        }
+    }
+}, true);
+
 document.addEventListener('DOMContentLoaded', () => {
     
     /* ==========================================================================
@@ -43,15 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const vslVideo = document.getElementById('vsl-video');
     const vslProgress = document.getElementById('vsl-progress');
 
-    // Cargar video de Wistia muteado en segundo plano en la carga inicial (para que se vea el movimiento detrás del banner)
-    // Diferido por 1.5 segundos para optimizar el Speed Index y no bloquear la carga inicial en móviles
+    // Cargar video de Wistia muteado en segundo plano en la carga inicial
     let wistiaVideoInstance = null;
     let wistiaLoaded = false;
 
     if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
         const safetyTimeout = setTimeout(() => {
             if (vslFacade && vslFacade.style.display !== 'none') {
-                console.log("VSL: Fallback de seguridad activado por retraso de carga.");
                 vslFacade.style.opacity = '0';
                 setTimeout(() => {
                     vslFacade.style.display = 'none';
@@ -59,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 4000);
 
-        // Inicializar Wistia JS API con opciones para reproducir silenciado automáticamente
+        // Inicializar Wistia JS API de forma segura
         window._wq = window._wq || [];
         window._wq.push({ 
             id: CONFIG.videoSource, 
@@ -67,27 +78,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 playerColor: "2c422c"
             },
             onReady: function(video) {
-                wistiaVideoInstance = video;
-                wistiaLoaded = true;
+                try {
+                    wistiaVideoInstance = video;
+                    wistiaLoaded = true;
 
-                // Cuando el video comience a reproducirse en el fondo (silenciado), desvanecer la fachada completa
-                video.bind('play', function() {
-                    clearTimeout(safetyTimeout); // Limpiar timeout de seguridad
-                    if (vslFacade && vslFacade.style.display !== 'none') {
-                        vslFacade.style.opacity = '0';
-                        setTimeout(() => {
-                            vslFacade.style.display = 'none';
-                        }, 600);
-                    }
-                });
+                    // Cuando el video comience a reproducirse en el fondo (silenciado), desvanecer la fachada
+                    video.bind('play', function() {
+                        try {
+                            clearTimeout(safetyTimeout);
+                            if (vslFacade && vslFacade.style.display !== 'none') {
+                                vslFacade.style.opacity = '0';
+                                setTimeout(() => {
+                                    vslFacade.style.display = 'none';
+                                }, 600);
+                            }
+                        } catch (e) {}
+                    });
 
-                // Solución para Android: Forzar el volumen al 100% (1.0) en cuanto el usuario desmutee
-                video.bind('volumechange', function() {
-                    const currentVol = video.volume();
-                    if (currentVol > 0 && currentVol < 1.0) {
-                        video.volume(1.0);
-                    }
-                });
+                    // Solución para Android: Forzar el volumen al 100% (1.0) en cuanto el usuario desmutee
+                    video.bind('volumechange', function() {
+                        try {
+                            const currentVol = video.volume();
+                            if (currentVol > 0 && currentVol < 1.0) {
+                                video.volume(1.0);
+                            }
+                        } catch (e) {}
+                    });
+                } catch (err) {
+                    console.log("Wistia init handled:", err);
+                }
             }
         });
 
