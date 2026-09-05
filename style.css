@@ -611,8 +611,16 @@ body {
     width: 28px;
     height: 28px;
     object-fit: contain;
-    border-radius: 50%;
+    display: block;
     flex-shrink: 0;
+}
+
+.social-proof-fb {
+    border-radius: 50%;
+}
+
+.social-proof-ig {
+    border-radius: 7px;
 }
 
 .social-proof-text {
