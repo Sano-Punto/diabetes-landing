@@ -40,12 +40,23 @@ document.addEventListener('DOMContentLoaded', () => {
         videoPoster: ""
     };
 
-    // Actualizar todos los botones CTA con el enlace de pago configurado
+    // Actualizar todos los botones CTA con el enlace de pago configurado y tracking InitiateCheckout
     const ctaButtons = document.querySelectorAll('.btn-primary, .btn-sticky');
     ctaButtons.forEach(btn => {
         if (CONFIG.checkoutUrl && CONFIG.checkoutUrl !== "https://pay.hotmart.com/tu-codigo-aqui") {
             btn.href = CONFIG.checkoutUrl;
         }
+        btn.addEventListener('click', () => {
+            if (typeof fbq === 'function') {
+                try {
+                    fbq('track', 'InitiateCheckout', {
+                        content_name: 'Metodo Sano y Punto Diabetes España',
+                        currency: 'EUR',
+                        value: 14.00
+                    });
+                } catch (e) {}
+            }
+        });
     });
 
     /* ==========================================================================
