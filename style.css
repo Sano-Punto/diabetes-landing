@@ -3014,32 +3014,13 @@ body {
 }
 
 .guarantee-trust-body {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .guarantee-trust-text {
-    font-size: 0.92rem;
+    font-size: 0.94rem;
     color: #44403c;
     line-height: 1.55;
-    margin-bottom: 8px;
-}
-
-.guarantee-trust-text strong {
-    color: #1c1917;
-    font-weight: 700;
-}
-
-.guarantee-mail-link {
-    color: #b45309;
-    text-decoration: underline;
-    font-weight: 600;
-}
-
-.guarantee-trust-subtext {
-    font-size: 0.84rem;
-    font-style: italic;
-    color: #78716c;
-    line-height: 1.45;
     margin: 0;
 }
 
