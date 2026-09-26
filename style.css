@@ -2891,14 +2891,50 @@ body {
     color: var(--color-sage-950);
 }
 
+/* ==========================================================================
+   OFERTA: DESTACADO PRECIO CON DEGRADADO + EFECTO DE LUZ
+   ========================================================================== */
 .offer-anchor-price-highlight {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin: 8px auto 12px;
+    padding: 10px 28px;
+    background: linear-gradient(135deg, #f57c50 0%, #ea580c 50%, #dc5c2e 100%);
+    border-radius: 9999px;
+    box-shadow: 0 10px 25px -4px rgba(234, 88, 12, 0.45), 
+                0 0 0 2px rgba(255, 255, 255, 0.25) inset,
+                0 0 22px rgba(245, 124, 80, 0.35);
+    text-align: center;
+    text-decoration: none;
+    transform: translateZ(0);
+}
+
+.price-highlight-text {
+    position: relative;
+    z-index: 2;
     font-family: var(--font-sans);
-    font-size: clamp(1.8rem, 4vw, 2.3rem);
+    font-size: clamp(1.65rem, 4.5vw, 2.35rem);
     font-weight: 900;
-    color: var(--color-coral);
+    color: #ffffff;
     letter-spacing: -0.02em;
     line-height: 1.15;
-    margin: 4px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+
+.price-highlight-shine {
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 65%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    transform: skewX(-25deg);
+    animation: shine 3.6s infinite ease-in-out;
+    z-index: 3;
+    pointer-events: none;
 }
 
 .offer-anchor-terms {
@@ -2920,54 +2956,143 @@ body {
     text-align: center;
 }
 
-/* Garantía Compacta Integrada en Oferta (v2) */
-.offer-guarantee-compact {
+/* ==========================================================================
+   GARANTÍA DE CONFIANZA OFICIAL (30 DÍAS · RIESGO CERO)
+   ========================================================================== */
+.guarantee-trust-card {
+    margin-top: 24px;
+    padding: 24px 22px 20px;
+    background: linear-gradient(180deg, #fefdfb 0%, #faf6f0 100%);
+    border: 1.5px solid #e7dbca;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 28px rgba(120, 80, 20, 0.05), 
+                0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+    text-align: left;
+    position: relative;
+}
+
+.guarantee-trust-top {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-top: 24px;
-    padding: 18px 22px;
-    background: #f0fdf4;
-    border: 1.5px solid #86efac;
-    border-radius: 1.25rem;
-    text-align: left;
+    margin-bottom: 14px;
 }
 
-.offer-guarantee-icon {
+.guarantee-seal-badge {
     flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    background: #dcfce7;
-    color: #16a34a;
-    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.offer-guarantee-text strong {
-    display: block;
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: #14532d;
-    margin-bottom: 3px;
-    line-height: 1.35;
+.guarantee-seal-badge svg {
+    filter: drop-shadow(0 4px 10px rgba(180, 122, 36, 0.25));
 }
 
-.offer-guarantee-text p {
-    font-size: 0.88rem;
-    color: #166534;
+.guarantee-trust-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #fef3c7;
+    color: #92400e;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 6px;
+    border: 1px solid #fde68a;
+    margin-bottom: 4px;
+}
+
+.guarantee-trust-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2.6vw, 1.2rem);
+    font-weight: 800;
+    color: #1c1917;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.guarantee-trust-body {
+    margin-bottom: 16px;
+}
+
+.guarantee-trust-text {
+    font-size: 0.92rem;
+    color: #44403c;
+    line-height: 1.55;
+    margin-bottom: 8px;
+}
+
+.guarantee-trust-text strong {
+    color: #1c1917;
+    font-weight: 700;
+}
+
+.guarantee-mail-link {
+    color: #b45309;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.guarantee-trust-subtext {
+    font-size: 0.84rem;
+    font-style: italic;
+    color: #78716c;
     line-height: 1.45;
     margin: 0;
 }
 
-@media (max-width: 480px) {
-    .offer-guarantee-compact {
+.guarantee-trust-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 14px;
+    border-top: 1px dashed #e7dbca;
+}
+
+.guarantee-pill-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(180, 83, 9, 0.06);
+    border: 1px solid rgba(180, 83, 9, 0.16);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #78350f;
+}
+
+.guarantee-pill-item svg {
+    flex-shrink: 0;
+    color: #b45309;
+}
+
+@media (max-width: 580px) {
+    .guarantee-trust-top {
         flex-direction: column;
+        align-items: center;
         text-align: center;
         gap: 10px;
-        padding: 16px 14px;
+    }
+
+    .guarantee-trust-card {
+        padding: 18px 14px 16px;
+    }
+
+    .guarantee-trust-text,
+    .guarantee-trust-subtext {
+        text-align: center;
+    }
+
+    .guarantee-trust-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .guarantee-pill-item {
+        justify-content: center;
     }
 }
 
@@ -3427,12 +3552,15 @@ body {
     }
 
     .offer-anchor-price-highlight {
-        font-size: 1.7rem;
+        padding: 8px 20px;
     }
 
-    .offer-guarantee-compact {
-        margin-top: 14px;
-        padding: 12px 12px;
+    .price-highlight-text {
+        font-size: 1.55rem;
+    }
+
+    .guarantee-trust-card {
+        margin-top: 16px;
     }
 
     /* FAQ */
