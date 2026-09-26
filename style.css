@@ -3198,7 +3198,11 @@ body {
     font-size: 0.97rem;
     color: var(--text-body);
     line-height: 1.65;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
+}
+
+.author-bio p:last-child {
+    margin-bottom: 0;
 }
 
 .author-contact-link {
