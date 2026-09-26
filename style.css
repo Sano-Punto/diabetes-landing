@@ -1747,8 +1747,9 @@ body {
         border-radius: 1.25rem;
     }
 
+    /* body con padding-bottom: 0 para que el footer oscuro llegue hasta el borde inferior sin franjas blancas */
     body {
-        padding-bottom: 78px;
+        padding-bottom: 0;
     }
 
     .sticky-mobile-cta {
@@ -3477,7 +3478,7 @@ body {
     }
 
     .site-footer {
-        padding: 20px 0 75px;
+        padding: 28px 0 100px;
     }
 }
 
