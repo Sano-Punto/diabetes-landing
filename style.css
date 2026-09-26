@@ -3504,48 +3504,24 @@ body {
     }
 
     .stat-value {
-        font-size: 1.45rem;
+        font-size: 1.65rem;
+        font-weight: 900;
     }
 
     .stat-label {
-        font-size: 0.74rem;
-        line-height: 1.25;
+        font-size: 0.84rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: var(--color-sage-950);
     }
 
     .stat-trend {
-        font-size: 0.68rem;
+        font-size: 0.72rem;
     }
 
     .stat-source {
-        font-size: 0.64rem;
-    }
-
-    .offer-card {
-        padding: 24px 14px;
-    }
-
-    .offer-item {
-        padding: 12px 12px;
-    }
-
-    .offer-item-title {
-        font-size: 0.94rem;
-    }
-
-    .offer-item-desc {
-        font-size: 0.82rem;
-    }
-
-    .offer-anchor-box {
-        padding: 16px 12px;
-    }
-
-    .offer-anchor-price-highlight {
-        font-size: 1.6rem;
-    }
-
-    .final-cta-box {
-        padding: 26px 14px;
+        font-size: 0.72rem;
+        line-height: 1.25;
     }
 
     .btn-sticky {

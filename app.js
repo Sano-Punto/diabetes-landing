@@ -67,31 +67,67 @@ document.addEventListener('DOMContentLoaded', () => {
     const vslVideo = document.getElementById('vsl-video');
     const vslProgress = document.getElementById('vsl-progress');
 
-    // Cargar video de Wistia muteado en segundo plano en la carga inicial
+    // Cargar video de Wistia muteado en segundo plano en la carga inicial (optimizado para 4G)
     let wistiaVideoInstance = null;
     let wistiaLoaded = false;
+    let userWantsPlay = false;
+
+    const startWistia = () => {
+        if (!vslPlayerContainer) return;
+        if (!document.querySelector('.wistia_embed')) {
+            vslPlayerContainer.style.display = 'block';
+            vslPlayerContainer.innerHTML = `
+                <div class="wistia_embed wistia_async_${CONFIG.videoSource}" style="width:100%;height:100%;position:relative;"></div>
+            `;
+        }
+
+        if (!document.querySelector('script[src*="wistia.com/assets/external/E-v1.js"]')) {
+            const script = document.createElement('script');
+            script.src = "https://fast.wistia.com/assets/external/E-v1.js";
+            script.async = true;
+            document.head.appendChild(script);
+        }
+    };
 
     if (CONFIG.videoType === 'wistia' && CONFIG.videoSource) {
+        // Carga inmediata de Wistia para pre-bufferear en redes 4G sin demoras
+        setTimeout(startWistia, 60);
+
         const safetyTimeout = setTimeout(() => {
             if (vslFacade && vslFacade.style.display !== 'none') {
                 vslFacade.style.opacity = '0';
                 setTimeout(() => {
                     vslFacade.style.display = 'none';
-                }, 600);
+                }, 400);
             }
-        }, 4000);
+        }, 3500);
 
         // Inicializar Wistia JS API de forma segura
         window._wq = window._wq || [];
         window._wq.push({ 
             id: CONFIG.videoSource, 
             options: {
-                playerColor: "2c422c"
+                playerColor: "2c422c",
+                autoPlay: true,
+                muted: true
             },
             onReady: function(video) {
                 try {
                     wistiaVideoInstance = video;
                     wistiaLoaded = true;
+
+                    // Si el usuario ya tocó la pantalla mientras cargaba en 4G, desmutear y reproducir inmediatamente
+                    if (userWantsPlay) {
+                        try {
+                            video.unmute();
+                            video.volume(1.0);
+                            video.play();
+                        } catch(e) {}
+                        if (vslFacade) {
+                            vslFacade.style.opacity = '0';
+                            setTimeout(() => { vslFacade.style.display = 'none'; }, 300);
+                        }
+                    }
 
                     // Cuando el video comience a reproducirse en el fondo (silenciado), desvanecer la fachada
                     video.bind('play', function() {
@@ -101,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 vslFacade.style.opacity = '0';
                                 setTimeout(() => {
                                     vslFacade.style.display = 'none';
-                                }, 600);
+                                }, 300);
                             }
                         } catch (e) {}
                     });
@@ -121,27 +157,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        setTimeout(() => {
-            if (vslPlayerContainer) {
-                vslPlayerContainer.style.display = 'block';
-                // Usar embed nativo (div) de Wistia para tener acceso directo sin restricciones cross-origin de iframes
-                vslPlayerContainer.innerHTML = `
-                    <div class="wistia_embed wistia_async_${CONFIG.videoSource}" style="width:100%;height:100%;position:relative;"></div>
-                `;
-
-                // Cargar motor clásico E-v1.js de Wistia solo después de inyectar el div para resguardar PageSpeed
-                if (!document.querySelector('script[src*="wistia.com/assets/external/E-v1.js"]')) {
-                    const script = document.createElement('script');
-                    script.src = "https://fast.wistia.com/assets/external/E-v1.js";
-                    script.async = true;
-                    document.head.appendChild(script);
+        // Manejador de toque directo para Wistia (Pilar toca la pantalla)
+        if (vslFacade) {
+            vslFacade.addEventListener('click', () => {
+                if (wistiaVideoInstance) {
+                    try {
+                        wistiaVideoInstance.unmute();
+                        wistiaVideoInstance.volume(1.0);
+                        wistiaVideoInstance.play();
+                    } catch (e) {}
+                    vslFacade.style.opacity = '0';
+                    setTimeout(() => { vslFacade.style.display = 'none'; }, 300);
+                } else {
+                    userWantsPlay = true;
+                    startWistia();
+                    const muteSub = vslFacade.querySelector('.vsl-mute-subtitle');
+                    if (muteSub) muteSub.textContent = 'Iniciando sonido y vídeo…';
                 }
-            }
-        }, 2000);
+            });
+        }
     }
 
-    // El manejador de clic solo actúa en reproductores que no sean Wistia (Youtube, Vimeo, HTML5)
-    // Para Wistia, el banner se desvanece 100% de forma automática cuando el video inicia la reproducción
+    // El manejador de clic para reproductores que no sean Wistia (Youtube, Vimeo, HTML5)
     if (vslFacade && CONFIG.videoType !== 'wistia') {
         vslFacade.addEventListener('click', () => {
             // Ocultar fachada y mostrar reproductor inmediatamente
@@ -319,13 +356,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const animateCount = (el) => {
             const target = parseInt(el.getAttribute('data-count'), 10);
             const suffix = el.getAttribute('data-suffix') || '';
-            const duration = 1200;
+
+            // Respetar preferencia de accesibilidad
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                el.textContent = `${target}${suffix}`;
+                return;
+            }
+
+            // Empezar en un número base elevado para NO mostrar nunca 0% (evita parpadeo en móviles)
+            const startVal = Math.max(1, Math.round(target * 0.5));
+            const duration = 650; // Snappy y fluido en pantallas y procesadores móviles
             const startTime = performance.now();
 
             const step = (now) => {
                 const progress = Math.min((now - startTime) / duration, 1);
                 const eased = 1 - Math.pow(1 - progress, 3);
-                el.textContent = `${Math.round(target * eased)}${suffix}`;
+                const current = Math.round(startVal + (target - startVal) * eased);
+                el.textContent = `${current}${suffix}`;
                 if (progress < 1) requestAnimationFrame(step);
             };
             requestAnimationFrame(step);
@@ -338,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.4 });
+        }, { threshold: 0.25 });
 
         statValues.forEach((el) => statObserver.observe(el));
     }
