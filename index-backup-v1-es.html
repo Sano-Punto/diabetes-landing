@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap">
 
     <!-- Estilos de carga ultrarrápida -->
-    <link rel="stylesheet" href="style.css?v=38">
+    <link rel="stylesheet" href="style.css?v=37">
 
     <!-- Microsoft Clarity Tracking Code (Diferido por 2.5s tras el evento load para no bloquear TBT móvil) -->
     <script type="text/javascript">
@@ -85,12 +85,10 @@
                     <span class="underline-coral">Baja tu azúcar</span> desde la próxima comida, comiendo tu pan, tus patatas y tus lentejas de siempre
                 </h1>
                 <p class="sub-headline">
-                    El orden del plato que nadie te explicó en consulta: primero la verdura, luego la proteína y el pan al final. <strong>Hasta un 73% menos de subida de azúcar</strong>, comiendo lo de siempre.
+                    El orden de tu plato que nadie te explicó en consulta: primero la verdura, luego la proteína y el pan al final. Reduce hasta un <strong>73% la subida de azúcar</strong> comiendo lo de siempre.
                 </p>
-                <div class="hero-chips">
-                    <span class="hero-chip"><span class="chip-check">✔</span> Diabetes tipo 2</span>
-                    <span class="hero-chip"><span class="chip-check">✔</span> Azúcar alto o prediabetes</span>
-                    <span class="hero-chip"><span class="chip-check">✔</span> Cocino para mis padres</span>
+                <div class="hero-target-pill">
+                    <span class="target-check">✔</span> Para personas con diabetes tipo 2, prediabetes o familiares a cargo
                 </div>
             </div>
         </section>
@@ -150,17 +148,17 @@
                         </div>
                         <div class="trust-item">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                            <span>Pago seguro</span>
+                            <span>Pago seguro con tarjeta o PayPal</span>
                         </div>
                         <div class="trust-item">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                            <span>30 días de garantía</span>
+                            <span>30 días de garantía: si no ves bajar tus números, te devolvemos el 100%</span>
                         </div>
                     </div>
 
                     <!-- Barra de Comunidad Oficial (Facebook & Instagram) -->
                     <div class="community-proof-wrapper">
-                        <span class="community-proof-headline">Más de 1,9 millones de personas nos siguen:</span>
+                        <span class="community-proof-headline">Más de 1,9 millones de personas ya siguen a Sano & Punto:</span>
                         <div class="community-proof-bar">
                             <div class="community-badge-item">
                                 <img src="assets/facebook-icon.png" alt="Facebook Sano & Punto" class="social-proof-icon social-proof-fb" width="28" height="28">
@@ -183,7 +181,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 3: DASHBOARD DE RESULTADOS (PRUEBA SOCIAL CUANTITATIVA) -->
+        <!-- SECCIÓN: DASHBOARD DE RESULTADOS (PRUEBA SOCIAL CUANTITATIVA) -->
         <section class="proof-section">
             <div class="wave-divider wave-divider-top" aria-hidden="true">
                 <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
@@ -200,12 +198,26 @@
                     <div class="stat-card stat-highlight">
                         <span class="stat-label">Menos glucosa después de comer</span>
                         <span class="stat-value" data-count="73" data-suffix="%">73%</span>
+                        <span class="stat-trend trend-down">↓ comiendo exactamente lo mismo, con el pan al final</span>
                         <span class="stat-source">Shukla et al., Diabetes Care, 2015</span>
                     </div>
                     <div class="stat-card">
                         <span class="stat-label">Menos pico de azúcar</span>
                         <span class="stat-value" data-count="37" data-suffix="%">37%</span>
+                        <span class="stat-trend trend-down">↓ tu páncreas trabaja menos</span>
                         <span class="stat-source">Shukla et al., Diabetes Care, 2015</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Baja extra caminando</span>
+                        <span class="stat-value" data-count="12" data-suffix="%">12%</span>
+                        <span class="stat-trend trend-down">↓ con solo 10 minutos tras comer</span>
+                        <span class="stat-source">Universidad de Otago, Diabetologia</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Años de aviso silencioso</span>
+                        <span class="stat-value">6 años</span>
+                        <span class="stat-trend">el pico poscomida avisa años antes que el examen en ayunas</span>
+                        <span class="stat-source">Tabák et al., The Lancet, 2009</span>
                     </div>
                 </div>
 
@@ -221,8 +233,8 @@
                         <path class="chart-line chart-line-after" d="M0,140 C80,132 140,105 200,100 C280,93 340,80 400,82 C460,84 520,95 600,98" fill="none"></path>
                     </svg>
                     <div class="chart-legend">
-                        <span class="legend-item legend-before"><i></i> Con pan al inicio</span>
-                        <span class="legend-item legend-after"><i></i> Con pan al final</span>
+                        <span class="legend-item legend-before"><i></i> Empezando por el pan o el arroz</span>
+                        <span class="legend-item legend-after"><i></i> Dejándolo para el final</span>
                     </div>
                 </div>
 
@@ -234,23 +246,26 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 4: STORYTELLING INTERACTIVO (EL VIAJE METABÓLICO) -->
+        <!-- SECCIÓN 3: STORYTELLING INTERACTIVO (EL VIAJE METABÓLICO) -->
         <section class="storytelling-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Has hecho todo "bien" y tu azúcar sigue sin cuadrar.</h2>
+                    <span class="section-subtitle">LO QUE NO TE DA TIEMPO A PREGUNTAR EN LA CONSULTA</span>
+                    <h2 class="section-title">Has hecho todo "bien" y tu azúcar sigue sin cuadrar. <em>Aquí está el porqué</em></h2>
                 </div>
 
-                <!-- Selector de Pasos Estilo Pill Sano & Punto (3 pasos) -->
+                <!-- Selector de Pasos Estilo Pill Sano & Punto -->
                 <div class="story-steps-indicator" id="story-steps">
-                    <button class="step-pill active" data-step="0"><span>1</span> El error</button>
-                    <button class="step-pill" data-step="1"><span>2</span> El secreto</button>
-                    <button class="step-pill" data-step="2"><span>3</span> El método</button>
+                    <button class="step-pill active" data-step="0"><span>1</span> Lo que duele</button>
+                    <button class="step-pill" data-step="1"><span>2</span> El error</button>
+                    <button class="step-pill" data-step="2"><span>3</span> El hallazgo</button>
+                    <button class="step-pill" data-step="3"><span>4</span> La solución</button>
+                    <button class="step-pill" data-step="4"><span>5</span> Tu garantía</button>
                 </div>
 
                 <!-- Indicador de Deslizar (Solo visible en móviles) -->
                 <div class="swipe-hint">
-                    <span class="swipe-icon">↔</span> Desliza →
+                    <span class="swipe-icon">↔</span> Desliza para ver los 5 pasos →
                 </div>
 
                 <!-- Slider / Track de Tarjetas Interactivas -->
@@ -261,31 +276,52 @@
 
                     <div class="cards-track" id="cards-track">
                         
-                        <!-- Tarjeta 1: El Error (card-error) -->
-                        <div class="story-card card-error" data-index="0">
+                        <!-- Tarjeta 1: El Dolor -->
+                        <div class="story-card card-pain" data-index="0">
+                            <div class="card-icon-box">
+                                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+                            </div>
+                            <h3>Te miden el síntoma equivocado</h3>
+                            <p>Tu analítica mira la glucosa en ayunas. Pero el daño silencioso ocurre en los picos de después de comer, día tras día. Y en una consulta de 10 minutos nadie te lo explica.</p>
+                        </div>
+
+                        <!-- Tarjeta 2: El Error Común -->
+                        <div class="story-card card-error" data-index="1">
                             <div class="card-icon-box">
                                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
                             </div>
-                            <h3>El pan no es tu enemigo</h3>
-                            <p>Quitarte el pan o la fruta solo trae miedo y rebote. Y el integral o lo "sin azúcar" no te salvan: suben casi igual y cuestan hasta un 70% más (OCU). No es culpa tuya.</p>
+                            <h3>El pan no es tu enemigo (y el integral no te salva)</h3>
+                            <p>Quitarte el pan, las patatas o la fruta solo te genera miedo, ansiedad y rebote. Y el pan integral o las galletas "sin azúcar" no son la solución: suben casi igual y, según la OCU, cuestan hasta un 70% más. No es culpa tuya: te lo vendieron así.</p>
                         </div>
 
-                        <!-- Tarjeta 2: La Clave Científica (card-science) -->
-                        <div class="story-card card-science" data-index="1">
+                        <!-- Tarjeta 3: La Clave Científica -->
+                        <div class="story-card card-science" data-index="2">
                             <div class="card-icon-box">
                                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18"/><path d="M12 12h9"/></svg>
                             </div>
                             <h3>El secreto está en el orden</h3>
-                            <p>Verdura primero, luego proteína y el pan, el arroz o la patata al final. El azúcar entra despacio, sin picos. Si además caminas 10 minutos después, baja un 12% más.</p>
+                            <p>Primero la verdura, luego la proteína y el pan, el arroz o la patata al final. La fibra hace de "malla" y el azúcar entra poco a poco, sin picos. Es la misma comida: tu tostada, tus lentejas, tu menú del día.</p>
                         </div>
 
-                        <!-- Tarjeta 3: El Método Sano & Punto (card-method) -->
-                        <div class="story-card card-method" data-index="2">
+                        <!-- Tarjeta 4: El Método Sano & Punto -->
+                        <div class="story-card card-method" data-index="3">
                             <div class="card-icon-box">
                                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"/><path d="M6 19v-5"/><path d="M12 19V9"/><path d="M18 19V5"/></svg>
                             </div>
                             <h3>El Método Sano & Punto</h3>
-                            <p><strong>Fase 1:</strong> detecta tus picos ocultos. <strong>Fase 2:</strong> domina el orden del plato. <strong>Fase 3:</strong> come fuera, en el menú del día y en familia sin miedo.</p>
+                            <p>Tres fases sencillas para personas reales:<br>
+                            • <strong>Fase 1:</strong> detecta los picos ocultos.<br>
+                            • <strong>Fase 2:</strong> domina el orden del plato y la caminata de 10 minutos.<br>
+                            • <strong>Fase 3:</strong> come fuera, en el menú del día y en las comidas familiares sin miedo ni culpa.</p>
+                        </div>
+
+                        <!-- Tarjeta 5: El Resultado Transformador -->
+                        <div class="story-card card-success" data-index="4">
+                            <div class="card-icon-box">
+                                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+                            </div>
+                            <h3>Resultados que ves en tu glucómetro</h3>
+                            <p>No prometemos milagros ni que dejes tu medicación. Tu médica te dice qué evitar; aquí aprendes a comer. Si en 30 días aplicas el método y no ves bajar tus números 2 horas después de comer, te devolvemos el 100%.</p>
                         </div>
 
                     </div>
@@ -295,56 +331,29 @@
                     </button>
                 </div>
 
-                <!-- Paginación de Puntos Móvil (3 puntos) -->
+                <!-- Paginación de Puntos Móvil -->
                 <div class="slider-dots" id="slider-dots">
                     <span class="dot active"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
-                </div>
-
-                <!-- NUEVO BOTÓN INTERMEDIO -->
-                <div class="cta-wrapper intermediate-cta">
-                    <a href="https://pay.hotmart.com/O107226641S?checkoutMode=10&amp;bid=1787101078743" class="btn-primary">
-                        <span class="btn-shine"></span>
-                        <span class="btn-text">QUIERO APRENDER EL ORDEN DEL PLATO »</span>
-                        <span class="btn-subtext">Por menos de 20 € · 30 días de garantía</span>
-                    </a>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
                 </div>
 
             </div>
         </section>
 
-        <!-- SECCIÓN 5: QUIÉN ESTÁ DETRÁS (SUBE ANTES DE LA OFERTA) -->
-        <section class="author-section">
-            <div class="container">
-                <div class="author-card">
-                    <div class="author-photo-wrapper">
-                        <picture>
-                            <source srcset="assets/alejandro-ruiz.webp" type="image/webp">
-                            <img src="assets/alejandro-ruiz.jpg" alt="Alejandro Ruiz - Creador de Sano & Punto" class="author-photo" width="170" height="170" loading="lazy">
-                        </picture>
-                    </div>
-                    <div class="author-bio">
-                        <span class="author-badge">QUIÉN ESTÁ DETRÁS</span>
-                        <h3>Hola, soy Alejandro Ruiz</h3>
-                        <p>[CREDENCIALES EN 1 LÍNEA: formación o experiencia]. Creé Sano & Punto porque vi a demasiada gente vivir con miedo a comer tras el diagnóstico. Lo que no da tiempo en una consulta de 10 minutos, aquí te lo enseño paso a paso. Hoy nos siguen más de 1,9 millones de personas.</p>
-                        <a href="mailto:alejo@sanoypunto.app" class="author-contact-link">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            Contacto directo: alejo@sanoypunto.app
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN 6: OFERTA + GARANTÍA INTEGRADAS -->
+        <!-- SECCIÓN 9.1: BLOQUE DE OFERTA CON ANCLAJE DE VALOR -->
         <section class="offer-section">
             <div class="container">
                 <div class="offer-card">
                     <div class="offer-header">
-                        <span class="offer-badge-top">LO QUE RECIBES</span>
-                        <h2 class="offer-title">Todo lo que te llevas hoy</h2>
-                        <p class="offer-subtitle">Acceso inmediato y para siempre en todos tus dispositivos.</p>
+                        <span class="offer-badge-top">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            OFERTA DISPONIBLE HOY
+                        </span>
+                        <h2 class="offer-title">Todo lo que recibes hoy para controlar tu glucosa</h2>
+                        <p class="offer-subtitle">Acceso digital vitalicio e inmediato desde tu móvil, tablet u ordenador</p>
                     </div>
 
                     <div class="offer-stack">
@@ -353,7 +362,7 @@
                                 <div class="offer-item-icon">✓</div>
                                 <div>
                                     <strong class="offer-item-title">Método Sano & Punto en 3 fases</strong>
-                                    <p class="offer-item-desc">Paso a paso para dominar el orden de tu plato desde la próxima comida.</p>
+                                    <p class="offer-item-desc">Protocolo práctico paso a paso para dominar el orden de tu plato y bajar tus números desde la próxima comida.</p>
                                 </div>
                             </div>
                             <span class="offer-item-val">Valor 47 €</span>
@@ -364,7 +373,7 @@
                                 <div class="offer-item-icon">✓</div>
                                 <div>
                                     <strong class="offer-item-title">Tablas de raciones y porciones de aquí</strong>
-                                    <p class="offer-item-desc">Con la comida de aquí: pan, patatas, arroz, legumbres y fruta.</p>
+                                    <p class="offer-item-desc">Guía visual con la comida real de España: pan, patatas, arroz, legumbres y frutas habituales sin tecnicismos.</p>
                                 </div>
                             </div>
                             <span class="offer-item-val">Valor 19 €</span>
@@ -375,7 +384,7 @@
                                 <div class="offer-item-icon">✓</div>
                                 <div>
                                     <strong class="offer-item-title">Ebook "Las 7 verdades ocultas de la diabetes"</strong>
-                                    <p class="offer-item-desc">Lo que no da tiempo a explicarte en una consulta de 10 minutos.</p>
+                                    <p class="offer-item-desc">Lo que nadie te explica en una consulta rápida de 10 minutos sobre analíticas, medicamentos y mitos.</p>
                                 </div>
                             </div>
                             <span class="offer-item-val">Valor 12 €</span>
@@ -388,38 +397,108 @@
                     </div>
 
                     <div class="offer-anchor-box">
-                        <p class="offer-anchor-comp">Una sola consulta privada suele costar <strong>unos 60 €</strong>.</p>
+                        <p class="offer-anchor-comp">Una sola consulta privada de nutrición suele costar <strong>unos 60 €</strong>.</p>
                         <div class="offer-anchor-price-row">
-                            <span class="offer-anchor-price-label">Hoy te llevas el método completo, con tablas y ebook:</span>
+                            <span class="offer-anchor-price-label">Hoy te llevas el método completo con tablas y guía:</span>
                             <div class="offer-anchor-price-highlight">Por menos de 20 €</div>
                         </div>
-                        <p class="offer-anchor-terms">Pago único · Sin suscripciones · Acceso de por vida</p>
-                        <p class="offer-anchor-saving">Menos de lo que gastas al mes en productos "sin azúcar".</p>
+                        <p class="offer-anchor-terms">Pago único · Sin suscripciones · Acceso inmediato para siempre</p>
+                        <p class="offer-anchor-saving">Menos de lo que gastas en un mes de productos procesados "sin azúcar".</p>
                     </div>
 
                     <div class="cta-wrapper">
                         <a href="https://pay.hotmart.com/O107226641S?checkoutMode=10&amp;bid=1787101078743" class="btn-primary">
                             <span class="btn-shine"></span>
                             <span class="btn-text">QUIERO BAJAR MI AZÚCAR POR MENOS DE 20 € »</span>
-                            <span class="btn-subtext">Acceso inmediato · Pago seguro</span>
+                            <span class="btn-subtext">Acceso instantáneo con 30 días de garantía de reembolso</span>
                         </a>
-                    </div>
-
-                    <!-- Garantía integrada dentro de la oferta -->
-                    <div class="offer-guarantee-compact">
-                        <div class="offer-guarantee-icon" aria-hidden="true">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-                        </div>
-                        <div class="offer-guarantee-text">
-                            <strong>🛡️ Garantía de 30 días: o lo ves en tu glucómetro, o te devolvemos el 100%.</strong>
-                            <p>Aplica el método comiendo lo que te gusta. Si no ves bajar tus números, escríbenos y te devolvemos todo. Sin preguntas.</p>
+                        <div class="trust-badges" style="justify-content: center; margin-top: 18px;">
+                            <div class="trust-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                <span>Pago seguro con tarjeta o PayPal</span>
+                            </div>
+                            <div class="trust-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                <span>30 días de garantía total</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 7: PREGUNTAS FRECUENTES (ACCORDION NATIVO) -->
+        <!-- SECCIÓN 9.2: GARANTÍA -->
+        <section class="guarantee-section">
+            <div class="container">
+                <div class="guarantee-box">
+                    <div class="guarantee-icon-wrapper" aria-hidden="true">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                    </div>
+                    <div class="guarantee-content">
+                        <span class="guarantee-badge">TRANQUILIDAD TOTAL</span>
+                        <h3>Garantía de 30 días: o lo ves en tu glucómetro, o te devolvemos el 100%</h3>
+                        <p>Aplica el método durante 30 días, comiendo lo que te gusta. Si no ves bajar tus números 2 horas después de comer, escríbenos y te devolvemos el 100% de tu dinero de inmediato. Sin preguntas ni letra pequeña. Todo el riesgo es nuestro.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 9.3: QUIÉN ESTÁ DETRÁS -->
+        <section class="author-section">
+            <div class="container">
+                <div class="author-card">
+                    <div class="author-photo-wrapper">
+                        <picture>
+                            <source srcset="assets/alejandro-ruiz.webp" type="image/webp">
+                            <img src="assets/alejandro-ruiz.jpg" alt="Alejandro Ruiz - Creador de Sano & Punto" class="author-photo" width="170" height="170" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="author-bio">
+                        <span class="author-badge">CREADOR DE SANO & PUNTO</span>
+                        <h3>Hola, soy Alejandro Ruiz</h3>
+                        <p>Creé Sano & Punto porque vi a demasiada gente vivir con miedo a comer después de un diagnóstico. Lo que no da tiempo a explicar en una consulta de 10 minutos, aquí te lo enseño paso a paso con el orden correcto de tus comidas. Hoy nuestra comunidad supera los 1,9 millones de personas en todo el mundo.</p>
+                        <a href="mailto:alejo@sanoypunto.app" class="author-contact-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            Contacto directo: alejo@sanoypunto.app
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 9.5: PARA QUIÉN ES -->
+        <section class="audience-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">CLARIDAD METABÓLICA</span>
+                    <h2 class="section-title">¿Para quién es este método?</h2>
+                    <p class="section-desc">Diseñado para la vida real de personas que comen en casa, de menú del día o con su familia.</p>
+                </div>
+                <div class="audience-grid">
+                    <div class="audience-card">
+                        <span class="audience-tag">DIABETES TIPO 2</span>
+                        <h3>Si tienes diabetes tipo 2</h3>
+                        <p>Para dejar de tener miedo a comer pan, patatas o legumbres, y ver tus números más estables desde tu próxima comida.</p>
+                    </div>
+                    <div class="audience-card">
+                        <span class="audience-tag">PREDIABETES</span>
+                        <h3>Si tienes el azúcar alto</h3>
+                        <p>Para darle la vuelta a tiempo, ahora que todavía decides tú, sin renunciar al menú del día ni a las cañas con amigos.</p>
+                    </div>
+                    <div class="audience-card">
+                        <span class="audience-tag">FAMILIARES</span>
+                        <h3>Si cocinas para tus padres</h3>
+                        <p>Para preparar una sola comida para toda la familia, con tranquilidad y sin discusiones en la mesa.</p>
+                    </div>
+                </div>
+                <div class="audience-not-for-you">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f27244" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <span><strong>No es para ti si</strong> buscas una pastilla milagrosa o una dieta extrema de 1.000 calorías.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 9.6: PREGUNTAS FRECUENTES (ACCORDION NATIVO) -->
         <section class="faq-section">
             <div class="container faq-container">
                 <div class="section-header">
@@ -434,7 +513,7 @@
                             <span class="faq-icon">+</span>
                         </summary>
                         <div class="faq-answer">
-                            <p>Sí. No hay alimentos prohibidos: aprendes la ración, la combinación y el orden para comer tranquila.</p>
+                            <p>Sí. No hay alimentos prohibidos: aprenderás la ración, la combinación y el orden para comerlos con tranquilidad.</p>
                         </div>
                     </details>
 
@@ -444,7 +523,7 @@
                             <span class="faq-icon">+</span>
                         </summary>
                         <div class="faq-answer">
-                            <p>Tu médica lleva tu tratamiento. Aquí aprendes lo que no da tiempo en 10 minutos: qué comer cada día.</p>
+                            <p>Tu médica lleva tu tratamiento y te dice qué evitar. Lo que no da tiempo en 10 minutos es enseñarte a comer: qué desayunar, qué pedir en el menú del día, qué hacer en una comida familiar. Eso es lo que aprendes aquí.</p>
                         </div>
                     </details>
 
@@ -454,7 +533,7 @@
                             <span class="faq-icon">+</span>
                         </summary>
                         <div class="faq-answer">
-                            <p>Sí, no dejes nada. Si tomas insulina, sulfonilureas o glinidas, coméntalo con tu médico: al mejorar tus números puede que ajuste la dosis.</p>
+                            <p>Sí, es compatible con tu tratamiento y no tienes que dejar nada. Si tomas insulina, sulfonilureas o glinidas, coméntalo con tu médico antes de cambiar tu alimentación, porque al mejorar tus números puede que haya que ajustar la dosis.</p>
                         </div>
                     </details>
 
@@ -464,7 +543,27 @@
                             <span class="faq-icon">+</span>
                         </summary>
                         <div class="faq-answer">
-                            <p>Saberlo no es aplicarlo. Aquí lo aplicas al desayuno, menú del día, tupper y comidas familiares, y lo ves en tu glucómetro.</p>
+                            <p>Saberlo no es aplicarlo. Aquí lo llevas a tu comida real paso a paso: el desayuno, el menú del día, el tupper, las cañas y las comidas familiares. Y lo compruebas en tu glucómetro.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">
+                            <span>¿Tengo que comprar productos especiales o "para diabéticos"?</span>
+                            <span class="faq-icon">+</span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>No. Se hace con lo que ya compras en el súper habitual, y probablemente ahorres al evitar productos ultraprocesados con sobreprecio.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary class="faq-question">
+                            <span>¿Cuánto tiempo necesito?</span>
+                            <span class="faq-icon">+</span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>El material es directo y al grano. Puedes aprender la base en una sola tarde y empezar a notar la diferencia desde tu próxima comida.</p>
                         </div>
                     </details>
 
@@ -474,7 +573,7 @@
                             <span class="faq-icon">+</span>
                         </summary>
                         <div class="faq-answer">
-                            <p>En Hotmart con tarjeta o PayPal. Si en 30 días no ves resultados, escribe a <a href="mailto:alejo@sanoypunto.app">alejo@sanoypunto.app</a> y te devolvemos el 100%.</p>
+                            <p>El pago se hace en Hotmart, una plataforma segura, con tarjeta o PayPal. Si en 30 días no ves resultados en tu glucómetro, escribe a <a href="mailto:alejo@sanoypunto.app">alejo@sanoypunto.app</a> y te devolvemos el 100% de tu dinero sin preguntas.</p>
                         </div>
                     </details>
 
@@ -484,19 +583,19 @@
                             <span class="faq-icon">+</span>
                         </summary>
                         <div class="faq-answer">
-                            <p>Al instante, por email, tras el pago.</p>
+                            <p>Al momento, por email, inmediatamente después de confirmar tu pedido.</p>
                         </div>
                     </details>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 8: LLAMADA FINAL -->
+        <!-- SECCIÓN 9.7: LLAMADA FINAL -->
         <section class="final-cta-section">
             <div class="container">
                 <div class="final-cta-box">
                     <h2>Cada comida que empiezas por el pan es un pico más. La próxima puede ser distinta.</h2>
-                    <p>Aprende a comer sin miedo, por menos de lo que cuesta una consulta: <strong>menos de 20 €</strong>.</p>
+                    <p>Aprende a comer lo de siempre sin miedo, por menos de lo que cuesta una consulta médica privada: <strong>menos de 20 €</strong>.</p>
                     <a href="https://pay.hotmart.com/O107226641S?checkoutMode=10&amp;bid=1787101078743" class="btn-primary">
                         <span class="btn-shine"></span>
                         <span class="btn-text">EMPIEZA HOY POR MENOS DE 20 € »</span>
@@ -536,6 +635,6 @@
     </footer>
 
     <!-- Script Ultraligero -->
-    <script src="app.js?v=35"></script>
+    <script src="app.js?v=34"></script>
 </body>
 </html>

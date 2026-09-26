@@ -344,17 +344,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       5. BARRA CTA FIJA MÓVIL: VISIBLE SOLO DESPUÉS DEL CTA PRINCIPAL
+       5. BARRA CTA FIJA MÓVIL: VISIBLE SOLO TRAS EL CTA PRINCIPAL Y
+          OCULTA CUANDO CUALQUIER BOTÓN CTA ENTRE EN PANTALLA
        ========================================================================== */
     const stickyCta = document.getElementById('sticky-mobile-cta');
     const mainCtaBtn = document.getElementById('main-cta-btn');
+    const inlineCtas = document.querySelectorAll('.btn-primary');
+
     if (stickyCta && mainCtaBtn && 'IntersectionObserver' in window) {
+        let isPastMainCta = false;
+        const visibleCtas = new Set();
+
+        const updateStickyVisibility = () => {
+            const shouldBeVisible = isPastMainCta && visibleCtas.size === 0;
+            stickyCta.classList.toggle('visible', shouldBeVisible);
+        };
+
+        window.addEventListener('scroll', () => {
+            const rect = mainCtaBtn.getBoundingClientRect();
+            isPastMainCta = rect.bottom < 0;
+            updateStickyVisibility();
+        }, { passive: true });
+
         const ctaObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                stickyCta.classList.toggle('visible', !entry.isIntersecting && entry.boundingClientRect.top < 0);
+                if (entry.isIntersecting) {
+                    visibleCtas.add(entry.target);
+                } else {
+                    visibleCtas.delete(entry.target);
+                }
             });
-        }, { threshold: 0 });
-        ctaObserver.observe(mainCtaBtn);
+            updateStickyVisibility();
+        }, { threshold: 0.05 });
+
+        inlineCtas.forEach((btn) => ctaObserver.observe(btn));
     }
 
 });
