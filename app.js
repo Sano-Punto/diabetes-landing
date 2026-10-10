@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (typeof fbq === 'function') {
                 try {
                     fbq('track', 'InitiateCheckout', {
-                        content_name: 'Metodo Sano y Punto Diabetes España',
-                        currency: 'EUR',
-                        value: 14.00
+                        content_name: 'Metodo Sano y Punto Diabetes Mexico',
+                        currency: 'USD',
+                        value: 14.99
                     });
                 } catch (e) {}
             }
