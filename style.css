@@ -3644,4 +3644,63 @@ body {
     }
 }
 
+/* ==========================================================================
+   ¿CUÁL ES TU CASO? · Una tarjeta por avatar (México)
+   ========================================================================== */
+.case-section {
+    padding: 50px 0 20px;
+}
 
+.case-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.case-card {
+    background: #ffffff;
+    border: 1px solid var(--border-brand);
+    border-radius: 1.5rem;
+    padding: 24px 22px;
+    box-shadow: var(--shadow-soft);
+    text-align: left;
+}
+
+.case-tag {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    color: var(--color-sage-700);
+    background: var(--color-sage-100);
+    border-radius: 20px;
+    padding: 5px 12px;
+    margin-bottom: 12px;
+}
+
+.case-card h3 {
+    font-family: var(--font-sans);
+    font-size: 1.18rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--color-sage-950);
+    margin-bottom: 8px;
+}
+
+.case-card p {
+    font-family: var(--font-body);
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--text-body);
+    margin: 0;
+}
+
+@media (min-width: 820px) {
+    .case-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
